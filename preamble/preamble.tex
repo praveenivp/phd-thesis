@@ -76,6 +76,8 @@
 \captionsetup{labelfont={labelcolor,bf}} 	% e.g. coloring the word "Figure" in caption
 \usepackage{subcaption}				% For subcaptioning images
 \usepackage{fancybox}				% Allows shadowbox around figure (for screenshot)
+\usepackage{moresize}
+\usepackage{pdfpages}
 
 % path where the \includegrahics looks for figures
 \graphicspath{
@@ -518,6 +520,28 @@ examplebackground=lightgraycolor!25]{preamble/kaotheorems}
   \tablename~\thetable%
   % \autodot% DELETED
 }
+
+%%***************************************************** added
+\renewcommand{\mainmatter}{%
+	\oldmainmatter%
+	\pagestyle{scrheadings}% Use a fancy style for the header and the footer
+	\pagelayout{wide}% 
+	\setchapterstyle{kao} % Choose the default chapter heading style
+}
+
+\renewcommand{\widelayout}{%
+	\newgeometry{% to be adjusted if needed
+		top=27.4\vscale,
+		bottom=27.4\vscale,
+		inner=28\hscale,
+		outer=28\hscale,
+		marginparsep=5mm,
+		marginparwidth=20mm,
+	}%
+	\recalchead%
+}   
+%%*****************************************************
+
 
 %%% Local Variables:
 %%% mode: latex

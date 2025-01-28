@@ -12,15 +12,13 @@
 % Show page number in footer aligned to the outside of the page (excluding chapter pages)
 \pagestyle{pagenum.scrheadings}
 
-\input{frontmatter/acknowledgments}
-
 \input{frontmatter/abstract}
 
 \input{frontmatter/zusammenfassung}
 
 \input{frontmatter/toc_lof_lot}
 
-\input{frontmatter/notation}
+%\input{frontmatter/notation}
 
 % ===================================================================
 % MAINMATTER
@@ -29,56 +27,27 @@
 \mainmatter% start main document, reset page numbering, use arabic numbers
 
 % ---------------------------------
-% STRUCTURAL OVERVIEW
-% ---------------------------------
-
-\setchapterpreamble[u]{\margintoc}
-\pagelayout{margin} % restore margins
-\chapter{Overview}\label{chap:overview}
-\input{chapters/overview}
-
-% ---------------------------------
 % BACKGROUND
 % ---------------------------------
-
 \pagelayout{wide} % disable margins
-\part{Background \& Motivation}\label{part:background}
-\pagelayout{margin} % restore margins
+\chapter{synopsis}\label{chap:synopsis}
+\input{synopsis/synopsis}
 
-\setchapterpreamble[u]{\margintoc}
-\chapter{Background 1}\label{chap:background-1}
-\input{chapters/background1}
-
-\setchapterpreamble[u]{\margintoc}
-\chapter{Background 2 (advanced)}\label{chap:background-2}
-\input{chapters/background2}
+\chapter{List of Publications}\label{chap:LOP}
+\input{chapters/list_publications.tex}
 
 % ---------------------------------
 % MAIN WORK
 % ---------------------------------
 
-\pagelayout{wide} % disable margins
-\part{Backpropagation Beyond the Gradient}\label{part:papers}
-\pagelayout{margin} % restore margins
-
-\setchapterpreamble[u]{\margintoc}
-\chapter{Paper 1}\label{chap:paper-1}
+\chapter{Appended manuscripts}\label{chap:paper1}
 \input{chapters/paper1}
-
-\setchapterpreamble[u]{\margintoc}
-\chapter{Paper 2}\label{chap:paper-2}
 \input{chapters/paper2}
-
 
 % ---------------------------------
 % CONCLUSION
 % ---------------------------------
 
-\pagelayout{wide} % disable margins
-\part{Conclusion \& Future Directions}\label{part:conclusion}
-\pagelayout{margin} % restore margins
-
-\setchapterpreamble[u]{\margintoc}
 \chapter{Conclusion \& Future Directions}\label{chap:conclusion}
 \input{chapters/conclusion}
 
@@ -86,28 +55,30 @@
 % APPENDIX
 % ---------------------------------
 
-\appendix % number chapters with letters from here on
-
-\pagelayout{wide} % No margins
-\part{Appendix}\label{part:appendix}
-\pagelayout{margin} % Restore margins
-
-\setchapterpreamble[u]{\margintoc}
-\chapter{Additional Material for Chapter \ref{chap:paper-1}}
-\input{chapters/paper1_app}
-
-\setchapterpreamble[u]{\margintoc}
-\chapter{Additional Material for Chapter \ref{chap:paper-2}}
-\input{chapters/paper2_app}
+%\appendix % number chapters with letters from here on
+%
+%\pagelayout{wide} % No margins
+%\part{Appendix}\label{part:appendix}
+%\pagelayout{margin} % Restore margins
+%
+%\setchapterpreamble[u]{\margintoc}
+%\chapter{Additional Material for Chapter \ref{chap:paper-1}}
+%\input{chapters/paper1_app}
+%
+%\setchapterpreamble[u]{\margintoc}
+%\chapter{Additional Material for Chapter \ref{chap:paper-2}}
+%\input{chapters/paper2_app}
 
 % ===================================================================
 % BACKMATTER
 % ===================================================================
 
-\backmatter% end of the main document content
+%\backmatter% end of the main document content
 
-\input{backmatter/bibliography}
 
+%\input{backmatter/bibliography}
+
+\input{frontmatter/acknowledgments}
 \end{document}
 
 %%% Local Variables:
