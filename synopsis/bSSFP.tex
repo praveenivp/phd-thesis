@@ -1,0 +1,39 @@
+The rapid steady-state \gls{MRI} sequences are a sub-category of fast gradient-echo sequences where the excitation pulses are applied consecutively at a constant but much faster rate than the longitudinal and transverse relaxation times $(T_1, T_2 << TR)$. In addition to enabling fast imaging, the signal dependence on the previous excitations generates novel structural and functional contrast mechanism. Depending on whether the transverse magnetization is spoiled/excluded after each repetition, the steady-state methods can be classified into steady-state incoherent and coherent methods as shown in \cref{fig:ss_seq}. The incohorent methods such as \gls{FLASH}\cite{haaseFLASHImagingRapid1986}/\gls{SPGR} eliminate the residual transverse magnetization before the next excitation with gradient spoiling and quadratic \gls{RF} phase increments known as \gls{RF} spoiling. Despite the first rapid steady state method \gls{FLASH} being proposed later than existing gradient-echo \gls{EPI} \cite{mansfieldMultiplanarImageFormation1977} and spin-echo \gls{RARE} \cite{hennigRAREImagingFast1986} methods, it was quickly adopted into clinical routine because of its high image quality, desirable $T_1$ contrast and reliability.
+\newline\newline
+In coherent methods, both longitudinal and transverse components evolves over multiple repetition resulting in a more complicated signal dependence on flip angle, $T_1$, $T_2$ and off-resonance. By carefully adjusting the unbalanced gradient moments, \gls{FID} part of \gls{SSFP} signal with prominent $T_1$ weighting or Echo part of \gls{SSFP} signal with prominent $T_2$ weighting can be acquired. The \gls{bSSFP} method\cite{zurMotioninsensitiveSteadystateFree1990} is a special case of coherent steady-state sequence where the gradient moment is nulled after each repetition. The gradient moment nulling makes the \gls{bSSFP} method highly motion insensitive and additionally, provides the possibility to simultaneously acquire signal from all the signal pathways.  The aliasing of signal from higher order pathways (i.e. transverse magnetization experiencing multiple RF pulses and dephasing over several repetitions) improves the SNR of the bSSFP acquisition and also, makes it more sensitive to additional phase accumulations due to temporal field drifts and spatial $B_0$ off-resonance. 
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{graphics/ss_seq.png}
+	\caption{Classification of steady-state sequences}
+	\label{fig:ss_seq}
+\end{figure}
+
+As the gradient moment is nulled, the steady-state transverse magnetization is summation of all echo amplitudes. The transverse magnetization after the RF pulse $M_+(t=0)$ is given by \cite{zurMotioninsensitiveSteadystateFree1990}
+
+\begin{equation}
+	M_+(t=0) = \sum_{n=-\infty}^{\infty} A_n e^{jn\Phi}
+\end{equation}
+
+where j is $\sqrt{-1}$, $A_n$ is the $n^{th}$ echo amplitude and $\Phi$ is the total phase accumulation within a single \gls{TR}. Ideally, $\Phi$ is zero for on-resonant magnetization. However, due to spatial $B_0$ inhomogeneity and eddy current effects, echo amplitudes can negatively interfere at some location creating a low signal region called bandings. 
+
+
+\subsection{phase cycling}
+
+In order to separate the contributions from individual echo, an additional phase shift is introduced to the transverse magnetization during every \gls{TR}. At present, this is achieved by linearly incrementing the phase by a fixed offset. Phase cycling is the process of repeating the imaging experiment with multiple RF phase increments. When the RF increments are equidistant and cover the entire $360^{\circ}$, \gls{DFT} can be used to calculate Echo amplitudes.
+
+\begin{equation}
+	M_+(t=0,\Psi) = \sum_{n=-\infty}^{\infty} A_n e^{jn\Psi} e^{jn\Phi}
+\end{equation}
+ 
+\subsection{bSSFP Configuration modes}
+
+
+\subsection{Things I want to cover in this}
+
+\begin{itemize}
+	\item[-] derive steady state equation?
+	\item[-] show SNR adavantage for particular T2/T1 ratio or atleast plot.
+	\item[-] intra-voxel spectrum and refocusing behavior
+	\end{itemize}

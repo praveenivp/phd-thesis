@@ -76,14 +76,27 @@
 \captionsetup{labelfont={labelcolor,bf}} 	% e.g. coloring the word "Figure" in caption
 \usepackage{subcaption}				% For subcaptioning images
 \usepackage{fancybox}				% Allows shadowbox around figure (for screenshot)
+% praveen
 \usepackage{moresize}
 \usepackage{pdfpages}
+\usepackage{parskip}
+%\usepackage[nolist,nohyperlinks]{acronym}
+\usepackage{glossaries}
+\makeglossaries
+\renewcommand*{\glstextformat}[1]{\textcolor{Black}{#1}} 
+
+% Count of words
+\usepackage{moreverb} % for verbatim ouput
+\immediate\write18{texcount -inc -incbib 
+	-sum thesis.tex > /tmp/wordcount.tex}
+\newcommand\wordcount{
+	\verbatiminput{/tmp/wordcount.tex}}
 
 % path where the \includegrahics looks for figures
-\graphicspath{
-  {../repos/cockpit-paper/fig/03_scalar_deep/output/}
-  {../repos/vivit-paper/tex/paper/}
-}
+%\graphicspath{
+%  {../repos/cockpit-paper/fig/03_scalar_deep/output/}
+%  {../repos/vivit-paper/tex/paper/}
+%}
 
 \newcommand{\goldenRatio}{1.61803398875}
 \newcommand{\goldenRatioInv}{0.61803398875}
@@ -452,11 +465,11 @@ examplebackground=lightgraycolor!25]{preamble/kaotheorems}
 \usepackage{lipsum}
 \usepackage{xargs}				% Use more than one optional parameter in a new commands
 
-\PassOptionsToPackage{colorinlistoftodos,prependcaption}{todonotes}
-\newcommandx{\unsure}[2][1=]{\todo[linecolor=secondcolor,backgroundcolor=secondcolor!25,bordercolor=secondcolor,size=\footnotesize,#1]{\textbf{Unsure:}\xspace#2}}
-\newcommandx{\change}[2][1=]{\todo[linecolor=maincolor,backgroundcolor=maincolor!25,bordercolor=maincolor,size=\footnotesize,#1]{\textbf{Change:}\xspace#2}}
-\newcommandx{\info}[2][1=]{\todo[linecolor=darkgraycolor,backgroundcolor=darkgraycolor!25,bordercolor=darkgraycolor,size=\footnotesize,#1]{\textbf{Info:}\xspace#2}}
-\newcommandx{\improvement}[2][1=]{\todo[linecolor=thirdcolor,backgroundcolor=thirdcolor!25,bordercolor=thirdcolor,size=\footnotesize,#1]{\textbf{Improve:}\xspace#2}}
+%\PassOptionsToPackage{colorinlistoftodos,prependcaption}{todonotes}
+%\newcommandx{\unsure}[2][1=]{\todo[linecolor=secondcolor,backgroundcolor=secondcolor!25,bordercolor=secondcolor,size=\footnotesize,#1]{\textbf{Unsure:}\xspace#2}}
+%\newcommandx{\change}[2][1=]{\todo[linecolor=maincolor,backgroundcolor=maincolor!25,bordercolor=maincolor,size=\footnotesize,#1]{\textbf{Change:}\xspace#2}}
+%\newcommandx{\info}[2][1=]{\todo[linecolor=darkgraycolor,backgroundcolor=darkgraycolor!25,bordercolor=darkgraycolor,size=\footnotesize,#1]{\textbf{Info:}\xspace#2}}
+%\newcommandx{\improvement}[2][1=]{\todo[linecolor=thirdcolor,backgroundcolor=thirdcolor!25,bordercolor=thirdcolor,size=\footnotesize,#1]{\textbf{Improve:}\xspace#2}}
 
 % ===================================================================
 % CUSTOMIZATIONS
@@ -473,12 +486,12 @@ examplebackground=lightgraycolor!25]{preamble/kaotheorems}
 
 % OR
 % Color section number in gray
-\renewcommand*{\sectionformat}{\textcolor{maincolor}{\thesection}\enskip}
-\renewcommand*{\subsectionformat}{\textcolor{maincolor}{\thesubsection}\enskip}
+%\renewcommand*{\sectionformat}{\textcolor{maincolor}{\thesection}\enskip}
+%\renewcommand*{\subsectionformat}{\textcolor{maincolor}{\thesubsection}\enskip}
 
 % Change style of the headers (chapter and section titles)
-\renewcommand*{\chaptermarkformat}{\textbf{\chapapp~\thechapter}\enskip\color{maincolor}}
-\renewcommand*{\sectionmarkformat}{\textbf{\thesection}\enskip\color{maincolor}}
+%\renewcommand*{\chaptermarkformat}{\textbf{\chapapp~\thechapter}\enskip\color{maincolor}}
+%\renewcommand*{\sectionmarkformat}{\textbf{\thesection}\enskip\color{maincolor}}
 
 % Call TOC "Table of Contents" instead of "Contents"
 \addto\captionsenglish{% Replace "english" with the language you use
@@ -511,15 +524,15 @@ examplebackground=lightgraycolor!25]{preamble/kaotheorems}
 \input{preamble/math_commands} % Math Commands from the Deep Learning book
 
 % ===================================================================
-% HOTFIXES
-\renewcommand*{\figureformat}{%
-  \figurename~\thefigure%
-  % \autodot% DELETED
-}
-\renewcommand*{\tableformat}{%
-  \tablename~\thetable%
-  % \autodot% DELETED
-}
+%% HOTFIXES
+%\renewcommand*{\figureformat}{%
+%  \figurename~\thefigure%
+%  % \autodot% DELETED
+%}
+%\renewcommand*{\tableformat}{%
+%  \tablename~\thetable%
+%  % \autodot% DELETED
+%}
 
 %%***************************************************** added
 \renewcommand{\mainmatter}{%
