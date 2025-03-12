@@ -1,51 +1,66 @@
-\subsection{NMR signal}
+\section{NMR signal} \label{sec:nmr}
 The source of \gls{NMR} signal arises from the intrinsic angular momentum of the atomic nuclei also known as spin. Although the behavior of the spin is quantum mechanical in nature, classical models are mostly sufficient in the scope of this thesis except for topics such as polarization and quadrapolar relaxation. Therefore, the following sections rely mostly on the classical picture of assuming macroscopic magnetization as a "spinning tiny magnets" in an external magnetic fields which obeys some classical rotational kinematics and differential equations. The complete quantum mechanical treatment of spins and origin of \gls{NMR} signal is covered in numerous sources\cite{levittSpinDynamicsBasics}\cite{haackeMagneticResonanceImaging1999}. 
 \subsection{Macroscopic Magnetization}
-The individual nuclei with non-zero spin are also associated with the magnetic moment. However, these magnetic moments are aligned randomly  in the absence of external magnetic field $B_0$ resulting in no net magnetic moment. According to quantum mechanics, when the spins experience an external magnetic field $B_0$, the energy state of the spin system undergoes splitting known as the \emph{Zeeman effect} into $2s+1$ discrete energy levels, where $s$ is the spin quantum number of the nuclei. These energy levels are typically $\Delta E=\hbar\gamma B_0$ apart without other interactions\cite{levittSpinDynamicsBasics}, where $\gamma$ is the gyromagnetic ratio for the nucleus and  $\hbar$ is the reduced Planck's constant ( $1.054571817\times10^{-34}$ J.s). This energy splitting favors the spin population to be in the low energy state while the thermal energy of the system tries to equalize the population in all levels. The emerging \emph{macroscopic magnetization} $M_0$ from this population imbalance can be estimated using the \emph{Boltzmann distribution}, which describes the probability of spins occupying different energy states based on their energy and the system's temperature. At room temperature, nuclear magnetic energy levels are much smaller than the thermal energy of the system(i.e $\hbar\gamma B_0 \ll kT$, where $k$ is Boltzmann's constant ($1.38066\times10^{-23}$ J/K) and T is the temperature in Kelvin). With this assumption, the infinite series from Boltzmann distribution simplifies to an analytical expression for observable \emph{macroscopic magnetization} $M_0$ that is aligned along the $B_0$ in an \gls{NMR} experiment\cite{haackeMagneticResonanceImaging1999}.
+The individual nuclei with non-zero spin are also associated with the magnetic moment. However, these magnetic moments are aligned randomly  in the absence of external magnetic field $B_0$ resulting in no net magnetic moment. According to quantum mechanics, when the spins experience an external magnetic field $B_0$, the energy state of the spin system undergoes splitting known as the \emph{Zeeman effect} into $2s+1$ discrete energy levels, where $s$ is the spin quantum number of the nuclei. These energy levels are typically $\Delta E=\hbar\gamma B_0$ apart without other interactions\cite{levittSpinDynamicsBasics}, where $\gamma$ is the gyromagnetic ratio for the nucleus and  $\hbar$ is the reduced Planck's constant. The energy difference also implies the spins are in some sense precessing around external magnetic field at the \emph{Larmor frequency} $\omega_0= \gamma B_0$. The electronic environment near nuclei can influence the magnetic field felt by the nuclei and change the Larmor frequency $\omega= \gamma B_0(1+\delta)$, where $\delta$ is the \emph{chemical shift} defined relative to the Larmor/reference frequency $\omega_0$ to make it field independent as
+\begin{equation}
+	\delta=\dfrac{\omega-\omega_0}{\omega_0}
+\end{equation}
+Additionally, this energy splitting favors the spin population to be in the low energy state while the thermal energy of the system tries to equalize the population in all levels. The emerging \emph{macroscopic magnetization} $M_0$ from this population imbalance can be estimated using the \emph{Boltzmann distribution}, which describes the probability of spins occupying different energy states based on their energy and the system's temperature. At room temperature, nuclear magnetic energy levels are much smaller than the thermal energy of the system(i.e $\hbar\gamma B_0 \ll kT$, where $k$ is Boltzmann's constant and T is the temperature in Kelvin). With this assumption, the infinite series from Boltzmann distribution simplifies to an analytical expression for observable \emph{macroscopic magnetization} $M_0$ that is aligned along the $B_0$ in an \gls{NMR} experiment\cite{haackeMagneticResonanceImaging1999}.
 \begin{equation}
 	M_0 \approxeq \rho_0 \dfrac{s(s+1)\gamma^2\hbar^2}{3kT}B_0
 	\label{eq:M0}
 \end{equation}
-Here $\rho_0$ is the number of spins in an unit volume. A general expression is given to accommodate both spin-$tfrac{1}{1}$ hydrogen nuclei ($^1H$)and spin-1 deuterium nuclei ($^2H$) investigated in this thesis. Additionally, the above expression partially explains the sensitivity improvement of an \gls{NMR} experiment at higher field strengths.
-
-\subsection{Excitation and detection}
+Here $\rho_0$ is the number of spins in an unit volume. A general expression is given to accommodate both spin-$\tfrac{1}{2}$ hydrogen nuclei ($^1H$)and spin-1 deuterium nuclei ($^2H$) investigated in this thesis. Additionally, the above expression partially explains the sensitivity improvement of an \gls{NMR} experiment at higher field strengths.
+\subsection{Excitation and Detection}
 The \emph{macroscopic magnetization} $M_0$ cannot be detected in an \gls{NMR} experiment. A time varying magnetic field $B_1$, typically in the \gls{RF} frequency range, is applied orthogonal to $B_0$ field to create \emph{transverse magnetization} $M_{xy}$ which can then be detected using a detection coil. 
-In most cases, $B_1$ field (\gls{RF} pulse) is applied at the \emph{Larmor frequency} $\omega_0 = \gamma B_0$ to achieve on-resonance condition ($\omega_{RF}=\omega_0$). For a \gls{RF} pulse $B_1(t)= b_1(t)\cos\omega_0 t$, the \emph{longitudinal magnetization} $M_z$ aligned along the static magnetic field $B_0$ is tipped away from the $B_0$ by an angle called flip angle $\alpha$ at any time point is given by
-
+In most cases, $B_1$ field (\gls{RF} pulse) is applied at the Larmor frequency $\omega_0$ to achieve on-resonance condition ($\omega_{RF}=\omega_0$). For a \gls{RF} pulse $B_1(t)= b_1(t)\cos\omega_0 t$, the \emph{longitudinal magnetization} $M_z$ aligned along the static magnetic field $B_0$ is tipped away from the $B_0$ by an angle called flip angle $\alpha$ at any time point is given by
 \begin{equation}
-	\alpha(t)=\gamma\int_{t_0}^{t} b_1(t')dt'
+	\alpha(t)=\gamma\int_{t_0}^{t} b_1(t')\text{d}t'
 \end{equation}
+In many cases, introducing a rotating frame of reference which rotates about the $B_0$ field at the instantaneous RF frequency $\omega_\text{RF}$ facilitates the investigation of RF pulse's influence on the magnetization. In on-resonance condition ($\omega_{RF}=\omega_0$), the effect of $B_0$ field can be ignored and the magnetization rotates about time-independent $B_1$ field in the rotating frame. when the \gls{RF} pulse is off-resonant, a magnetic field of $\Delta\omega/\gamma$ is encountered along the $B_0$ in the rotating frame($\omega_{RF}\neq\omega_0$), where $\Delta\omega=\omega_0-\omega_\text{RF}$. During the \gls{RF} pulse, the magnetization precess along the effective field $B_\text{eff}(t)$ which is the vector sum of  $\Delta\omega/\gamma$ and $B_1(t)$. If the frequency is modulated appropriately, the magnetization follow the $B_\text{eff}$ field to create transverse magnetization. The off-resonant \gls{RF} pulse with frequency modulation in such cases are called adiabtic pulses\cite{tannusAdiabaticPulses1997}. 
 
-A new rotating frame of reference which rotates about $B_0$ field at Larmor frequency $\omega_0$ is usually introduced to simply analysis by offsetting the modulation of the \emph{Larmor precession}. when the \gls{RF} pulse is off-resonant, a magnetic field of $\Delta\omega/\gamma$ is encountered along the $B_0$ in the rotating frame, where $\Delta\omega=\omega_0-\omega_{RF}$. During the \gls{RF} pulse, the magnetization precess along the effective field $B_{eff}(t)$ which is the vector sum of  $\Delta\omega/\gamma$ and $B_1(t)$. If the frequency is modulated appropriately, the magnetization follow the $B_{eff}$ field to create transverse magnetization. The off-resonant \gls{RF} pulse with frequency modulation in such cases are called adiabtic pulses\cite{tannusAdiabaticPulses1997}. 
-
-
-
-
+The precessing \emph{transverse magnetization} $M_\text{xy}=M_x+jM_y$ created by the excitation induces voltage in the receive coil as per Faraday's law of induction. The induced voltage is amplified, demodulated to a low frequency signal in a \emph{mixer} stage, and, digitized with \gls{ADC} for further processing.   
 \subsection{Relaxation}
-hgh
+when the macroscopic magnetization is tipped off of the thermal equilibrium, transverse magnetization $M_{xy}$ undergoes exponential decay and longitudinal magnetization $M_z$ recovers exponentially until the thermal equilibrium $M_{z,\text{eq}}$ is reached. The longitudinal relaxation is due to the exchange of energy with the environment and it characterized by time constant $T_1$. The transverse relaxation on the other hand is due the loss of coherence as the result of spin-spin interactions and microscopic field inhomogeneties. The transverse relaxation is characterized by an time constant $T_2$. In reality, there are additional macroscopic field inhomogeneties which cause the transverse magnetization to decay even faster with a time constant $T_2^*$. This $T_2^*$ decay is, however, can be recovered with a spin-echo experiment\cite{hahnSpinEchoes1950}. The relaxation times $T_1$ and $T_2$ are the inherent property of the material at a given field strength while $T_2^*$ depends also on the experimental conditions. 
 
-\subsubsection{Bloch equation}
-
-In matrix form, the Bloch equations can be written as:
+In case of spin-1 nuclei such as deuterium($^2H$), the non-spherical charge distribution of the nuclei results in a non-zero electric quadrapolar moment. Therefore, nuclei with spin quantum number $s\geq1$ interact with the electric field gradients of the molecular environment unlike half-integer spins resulting in much efficient and faster longitudinal relaxation.    
+\subsection{Bloch equation}
+The behavior of macroscopic magnetization under the influence of time varying $B_1$ field, $T_1$ and $T_2$ relaxation can be comprehensively explained with a set of differential equations called Bloch equation put forth by Felix Bloch\cite{blochNuclearInduction1946}. The matrix-vector form of the time-independent Bloch equation in the rotating frame of reference is given here for completeness.
 \begin{equation}	
 \frac{d}{dt}
 \begin{pmatrix} 
-	M_x \\
-	 M_y \\
-	  M_z 
+	M_x' \\
+	 M_y' \\
+	  M_z' 
 	\end{pmatrix} = \begin{pmatrix} 
-	-\frac{1}{T_2} & \gamma B_z & \gamma B_1 \cos(\omega t) \\ -\gamma B_z & -\frac{1}{T_2} & \gamma B_1 \sin(\omega t) \\ -\gamma B_1 \cos(\omega t) & -\gamma B_1 \sin(\omega t) & -\frac{1}{T_1} \end{pmatrix}
-	 \begin{pmatrix} M_x \\ M_y \\ M_z 
+	-1/T_2 & \Delta & -\gamma B_1 \\
+	 -\Delta & -1/T_2 & \gamma B_1 \\ 
+	 \gamma B_1 & -\gamma B_1  & -1/T_1 \end{pmatrix}
+	 \begin{pmatrix} M_x' \\ M_y' \\ M_z' 
 	 \end{pmatrix} 
 	 + \begin{pmatrix} 0 
-	 	\\ 0 \\ \frac{M_0}{T_1} \end{pmatrix}
+	 	\\ 0 \\ M_0/T_1 \end{pmatrix}
 \end{equation}
-	where $M_x$, $M_y$, and $M_z$ are the magnetization components, $\gamma$ is the gyromagnetic ratio, $B_0$ is the main magnetic field strength, $B_1$ is the amplitude of the RF field, $B_z$ is the z-component of the magnetic field, $T_1$ and $T_2$ are the longitudinal and transverse relaxation times, $M_0$ is the equilibrium magnetization, $\omega$ is the Larmor frequency, and $t$ is time.
+where
+	\begin{equation}
+		\Delta \coloneq \gamma B_0 -\omega_\text{RF}
+	\end{equation}	
+$M_x'=\operatorname{Re}(e^{j\omega_\text{RF}t}M_{xy})$, $M_y'=\operatorname{Im}(e^{j\omega_\text{RF}t}M_{xy})$ and  $M_z'=M_z$ are the magnetization components in the rotating frame, $\gamma$ is the gyromagnetic ratio, $B_0$ is the static magnetic field strength, $B_1$ is the amplitude of the demodulated \gls{RF} field, $T_1$ and $T_2$ are the longitudinal and transverse relaxation times, and $M_0=M_z(t\rightarrow \infty)$ is the equilibrium magnetization. The Bloch equation can be extended further to include the effects such as diffusion\cite{torreyBlochEquationsDiffusion1956} and chemical exchange\cite{mcconnellReactionRatesNuclear1958}.
 
-\subsection{x-nuclei}
+\subsection{Image Encoding and Reconstruction}
+The generated \gls{NMR} signal explained in the previous section arises from the entire sensitive volume of the detection coil. In a standard \gls{MRI} setup, the signal is spatially encoded with the three orthogonal linear spatially varying fields referred as \emph{gradients} $\textbf{G}$. In the rotating frame, the spatial phase accrual of the signal as the result of gradient fields is
 
+\begin{equation}
+	\Delta\phi(\textbf{r},t)=-\gamma\int_{0}^{t} \textbf{G}(t')\textbf{r} \text{d}t'=-\textbf{k}(t)\cdot\textbf{r}
+\end{equation}
+where 
+\begin{equation}
+	\textbf{k}(t)=\gamma\int_{o}^{t}\textbf{G}(t')\text{d}t'
+\end{equation}
 
+$\textbf{k}$ is the co-ordinate location in the reciprocal space of the image called \emph{k-space} corresponding to a particular spatial frequency. The received signal $s(t)$ of an object with a spin density distribution $\rho(\textbf{r})$ modulated by the gradient field in the receive coil with sensitivity $W(\textbf{r})$ is given by 
+\begin{equation}
+	s(t) \propto \int_V \rho(\textbf{r})W(\textbf{r})e^{-j\textbf{k}(t)\textbf{r}} \text{d}V
+\end{equation}
 
-\subsection{Image encoding}
-
-\subsection{Image reconstruction}
+If sufficient k-space samples are acquired for a given resolution and \gls{FOV} dictated by the \emph{Nyquist-Shannon sampling theorem}, a aliasing-free MR image can be reconstructed with the \gls{DFT}. In a conventional \gls{MRI}, the k-space samples are acquired in a uniform Cartesian grid in a line-by-line fashion. Since this a slow process, fast techniques to acquire the entire k-space with a single excitation (single-shot)\cite{mansfieldMultiplanarImageFormation1977} and few excitation (multi-shot) were proposed.
