@@ -20,6 +20,13 @@ As the gradient moment is nulled, the steady-state transverse magnetization is s
 where j is $\sqrt{-1}$, $A_n$ is the $n^{th}$ echo amplitude and $\Phi$ is the total phase accumulation within a single \gls{TR}. Ideally, $\Phi$ is zero for on-resonant magnetization. However, due to spatial $B_0$ inhomogeneity and eddy current effects, echo amplitudes can negatively interfere at some location creating a low signal region called bandings. 
 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{graphics/bSSFP_echoes.png}
+	\caption{Anatomy of bSSFP signal. It is the summation of different echoes.}
+	\label{fig:bSSFP_echoes}
+\end{figure}
+
 \subsection{phase cycling}
 
 In order to separate the contributions from individual echo, an additional phase shift is introduced to the transverse magnetization during every \gls{TR}. At present, this is achieved by linearly incrementing the phase by a fixed offset. Phase cycling is the process of repeating the imaging experiment with multiple RF phase increments. When the RF increments are equidistant and cover the entire $360^{\circ}$, \gls{DFT} can be used to calculate Echo amplitudes.
@@ -29,6 +36,14 @@ In order to separate the contributions from individual echo, an additional phase
 \end{equation}
  
 \subsection{bSSFP Configuration modes}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{graphics/bSSFP_EPG.png}
+	\caption{Temporal evolution of SSFP configuration modes. The calculated SSFP configuration mode amplitudes with brain grey-matter relaxation times at 9.4 T : $T_1$=2 s and $T_2$=35 ms and sequence parameters: TR=10 ms, flip angle=15 deg are shown in the middle for 80 repetitions. The first 10 repetitions during the transition and the last 10 }
+	\label{fig:bSSFP_EPG}
+\end{figure}
+
+
 
 
 \subsection{Things I want to cover in this}

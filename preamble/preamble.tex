@@ -542,7 +542,13 @@ examplebackground=lightgraycolor!25]{preamble/kaotheorems}
 	\recalchead%
 }   
 %%*****************************************************
-
+%% praveen
+\newcommand{\fakesection}[1]{%
+	\par\refstepcounter{section}% Increase section counter
+	\sectionmark{#1}% Add section mark (header)
+	\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
+	% Add more content here, if needed.
+}
 
 %%% Local Variables:
 %%% mode: latex

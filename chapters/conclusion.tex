@@ -1,9 +1,26 @@
+\section{Research Objectives}
+
+The desired outcome of this PhD thesis is to improve the \gls{fMRI} and the \gls{DMI} at 9.4 T using \gls{bSSFP} acquisition to study the human brain. In the first publication (see \cref{})  
+
+\begin{itemize}
+	\item cartesian bSSFP has more or less fixed TE/TR parameter space
+	\end{itemize}}
+
+
 \section{Summary \& Outlook}
 
-\blindtext
+We have demonstrated two applications of \gls{bSSFP} acquisition to investigate brain function at 9.4 T.
+In Publication 1, the encoding efficiency of passband bSSFP was improved with 3D stack-of-spirals where the spin-echo behavior of the \gls{bSSFP} was utilized to improve the \gls{fMRI}. We employed slice-selctive bionomial pulse for fat suppression and reconstruction model aware of system imperfections such as trajectory deviations and Spatial $B_0$ inhomogeneity to improve the image quality. We also investigated the additional paramter space flexibility introdicted by non-cartesian bSSFP acquistion like TR and TE and proposed optimal parameter to maximize the sensitivity of the functional experiment. The activation region obtained the both high resolution (0.6 mm3 and 0.8 mm3) thin-slab and 1.2 mm3 whole brain fucntional experiments show localized activations without any distortions. However, the vessel size specificity of the bSSFP is still alluding topic especially when it comes to in vivo evidence. As a follow up to this work, we conducted some experiments to see the evidence of vessel specificity of bSSFP-BOLD contrast.
+
+\subsection{signal change vs distance from large vessels}
+One indicator of selective suppression of BOLD signal changes originating from large veins in bSSFP-BOLD imaging is the reduction in signal change near these vessels. The underlying hypothesis is that bSSFP-BOLD should exhibit lower signal changes near large veins compared to GE-BOLD, reflecting improved spatial specificity. As shown in \ref{fig\:vesselDistance}, preliminary results indicate that bSSFP activation near large vessels demonstrates marginally reduced signal changes, suggesting a degree of vessel specificity. This effect becomes more pronounced in the bSSFP functional experiment conducted with a shorter TR and higher spatial resolution, where the suppression of large-vessel contributions is more clearly visible.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{graphics/vesselDist.png}
+	\caption{The dependency of vessel distance and signal change for GE-EPI and bSSFP acquisition. A) vessel distance in mm from large veins segmented by Frangi filter on a high resolution Cartesian GE-scan (TE=16 ms, 0.4 mm isotropic resolution). Exemplary anatomical axial image with GE-EPI (0.8 mm isotropic resolution) and spiral-bSSFP activation map (0.8 mm isotropic resolution). The corresponding signal change in the significantly activated voxels from the actiavation maps B and C are plotted against the vessel distance in D and E respectively. In F, a similiar plot is shown for bSSFP functional experiment with TR=6ms and 1mm isotropic voxels.}
+	\label{fig:vesselDistance}
+\end{figure}
 
 
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "../thesis"
-%%% End:
+\subsection{BOLD signal change in refocusing modes}

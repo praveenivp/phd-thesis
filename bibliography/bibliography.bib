@@ -985,12 +985,6 @@
   keywords = {Chemical shift,Localization,Metabolite,Shimming,Spectral dispersion,Suppression}
 }
 
-@online{centerforhistoryandnewmediaZoteroQuickStart,
-  title = {Zotero {{Quick Start Guide}}},
-  author = {{Center for History and New Media}},
-  url = {http://zotero.org/support/quick_start_guide}
-}
-
 @book{chandrakumarNMRBasicPrinciples,
   title = {{{NMR Basic}} Principles and Progress},
   author = {Chandrakumar, Narayanan},
@@ -3159,6 +3153,25 @@
   file = {C\:\\Users\\pvalsala\\Zotero\\storage\\BSK9VB4C\\Heidemann et al. - 2012 - Isotropic submillimeter fMRI in the human brain at.pdf;C\:\\Users\\pvalsala\\Zotero\\storage\\UAY2JEGF\\mrm.html}
 }
 
+@article{hennigEchoesHowGenerate1991,
+  title = {Echoes—How to Generate, Recognize, Use or Avoid Them in {{MR}}‐imaging Sequences. {{Part I}}: {{Fundamental}} and Not so Fundamental Properties of Spin Echoes},
+  shorttitle = {Echoes—How to Generate, Recognize, Use or Avoid Them in {{MR}}‐imaging Sequences. {{Part I}}},
+  author = {Hennig, Jürgen},
+  date = {1991-07},
+  journaltitle = {Concepts in Magnetic Resonance},
+  shortjournal = {Concepts Magn. Reson.},
+  volume = {3},
+  number = {3},
+  pages = {125--143},
+  issn = {1043-7347, 1099-0534},
+  doi = {10.1002/cmr.1820030302},
+  url = {https://onlinelibrary.wiley.com/doi/10.1002/cmr.1820030302},
+  urldate = {2025-05-30},
+  abstract = {Abstract             Spin echoes have been known since 1950. Although their formal description by use of the Bloch equations is straightforward, it does not lead to an intuitive understanding of their behavior except for the special cases of 180° or 90° pulses, especially when many pulses are applied before the magnetization has returned into thermal equilibrium. The extended‐phasegraph algorithm, which takes into account that the total magnetization in spin‐echo sequences is a superposition of many isochromats, allows the recognition of all possible echo signals in arbitrary pulse sequences. Its application to multi‐echo sequences leads to a number of surprising results. It can be demonstrated that refocusing pulses with flip angles much lower than 180° generate an unexpectedly high signal intensity after a few echo periods. Apart from leading to a simple algorithm for the exact calculation of echo intensities in arbitrary multi‐pulse sequences, the phase‐graph algorithm leads to a simple understanding of the contrast behavior of different gradient echo sequences and gives a rational means for the design of MR‐imaging sequences that are free from spurious echoes.},
+  langid = {english},
+  file = {C:\Users\pvalsala\Zotero\storage\Q2Y55L63\Hennig - 1991 - Echoes—how to generate, recognize, use or avoid them in MR‐imaging sequences. Part I Fundamental an.pdf}
+}
+
 @article{hennigOptimizationSignalBehavior2002,
   title = {Optimization of Signal Behavior in the Transition to Driven Equilibrium in Steady-State Free Precession Sequences},
   author = {Hennig, Juergen and Speck, Oliver and Scheffler, Klaus},
@@ -3247,6 +3260,16 @@
   url = {https://www.sciencedirect.com/science/article/pii/002223649190189Z},
   urldate = {2024-01-26},
   abstract = {A noniterative method for automatic phase correction, APSL (automatic phasing by symmetrizing lines), which exploits the fact that symmetric lines are maximally symmetric in correctly phased absorption spectra, is presented. The method is tolerant of baseline distortions and can be applied to all spectra in which there are at least two well-separated symmetric lines, not necessarily Lorentzians. An application to experimental data is discussed.}
+}
+
+@inproceedings{heuleInvertedBOLDSignal2024,
+  title = {Inverted {{BOLD}} Signal Changes in the Transient Phase of Passband Balanced {{SSFP}}},
+  booktitle = {Proc. {{Intl}}. {{Soc}}. {{Mag}}. {{Reson}}. {{Med}}. 32 (2024)},
+  author = {Heule, Rahel and Valsala, Praveen Iyyappan and Engelmann, Jörn and Charyasz, Edyta and Scheffler, Klaus},
+  date = {2024},
+  location = {Singapore},
+  url = {https://cds.ismrm.org/protected/24MProceedings/PDFfiles/3413_4kmdNjQru.html},
+  urldate = {2025-06-08}
 }
 
 @inproceedings{HighSNRFunctional,
@@ -4221,6 +4244,23 @@
   file = {C:\Users\pvalsala\Zotero\storage\364CZ7C2\Koch et al. - 2006 - Rapid calculations of susceptibility-induced magne.pdf}
 }
 
+@article{konstandinGammaSTARFrameworkDevelopment,
+  title = {{{gammaSTAR}}: {{A}} Framework for the Development of Dynamic, Real-Time Capable {{MR}} Sequences},
+  shorttitle = {{{gammaSTAR}}},
+  author = {Konstandin, Simon and Günther, Matthias and Hoinkiss, Daniel C.},
+  journaltitle = {Magnetic Resonance in Medicine},
+  volume = {n/a},
+  number = {n/a},
+  issn = {1522-2594},
+  doi = {10.1002/mrm.30573},
+  url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.30573},
+  urldate = {2025-05-26},
+  abstract = {Purpose To present the real-time capability and advanced MR sequence library of the MR sequence development framework gammaSTAR. Methods The presented platform consists of four different components: (1) a frontend for sequence development combined with a Python backend for sequence generation; (2) a Lua backend for the creation of hardware instructions; (3) a vendor-specific driver for translation of these instructions into scanner-specific objects; and (4) an interface for real-time feedback capability. In vivo measurements of the same volunteer were performed for comparison of imaging and spectroscopy sequences implemented in this framework with those of one main vendor (Siemens Healthineers) at magnetic field strengths of 3 T and 1.5 T. Prospective motion correction was integrated into a spin echo EPI sequence to demonstrate the real-time feedback capability. Results The imaging and spectroscopy results of the gammaSTAR sequences show very similar image contrasts and qualities compared to those by the vendor. ADC maps were calculated and show values of (0.80 ± 0.14)10−3 mm2/s in white matter. Results of pseudo-continuous spin-echo (pCASL GRASE) and 3D radial UTE imaging demonstrate the ability to run complex sequences without long sequence preparation times. Prospective motion correction is possible by means of real-time feedback and shows much fewer movement artifacts with mean voxel displacement of 1.63 mm (uncorrected) versus 0.37 mm (corrected). All images were reconstructed using the vendor's reconstruction pipeline. Conclusion The platform gammaSTAR allows for MR sequence development with real-time feedback capability demonstrated by a large number of MR sequences and applications.},
+  langid = {english},
+  keywords = {magnetic resonance imaging,MR pulse sequence programming,multicenter studies,platform independent,reproducibility},
+  file = {C\:\\Users\\pvalsala\\Zotero\\storage\\FGK9E4EE\\Konstandin et al. - gammaSTAR A framework for the development of dynamic, real-time capable MR sequences.pdf;C\:\\Users\\pvalsala\\Zotero\\storage\\GCD8XIUA\\mrm.html}
+}
+
 @article{koopmansStrategiesProspectsCortical2019,
   title = {Strategies and Prospects for Cortical Depth Dependent {{T2}} and {{T2}}* Weighted {{BOLD fMRI}} Studies},
   author = {Koopmans, Peter J. and Yacoub, Essa},
@@ -4235,6 +4275,24 @@
   urldate = {2022-10-19},
   langid = {english},
   file = {C:\Users\pvalsala\Zotero\storage\CMB7DZRZ\Koopmans and Yacoub - 2019 - Strategies and prospects for cortical depth depend.pdf}
+}
+
+@article{kronthalerTrajectoryCorrectionBased2021,
+  title = {Trajectory Correction Based on the Gradient Impulse Response Function Improves High-Resolution {{UTE}} Imaging of the Musculoskeletal System},
+  author = {Kronthaler, Sophia and Rahmer, Jürgen and Börnert, Peter and Makowski, Marcus R. and Schwaiger, Benedikt J. and Gersing, Alexandra S. and Karampinos, Dimitrios C.},
+  date = {2021},
+  journaltitle = {Magnetic Resonance in Medicine},
+  volume = {85},
+  number = {4},
+  pages = {2001--2015},
+  issn = {1522-2594},
+  doi = {10.1002/mrm.28566},
+  url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.28566},
+  urldate = {2025-06-05},
+  abstract = {Purpose UTE sequences typically acquire data during the ramping up of the gradient fields, which makes UTE imaging prone to eddy current and system delay effects. The purpose of this work was to use a simple gradient impulse response function (GIRF) measurement to estimate the real readout gradient waveform and to demonstrate that precise knowledge of the gradient waveform is important in the context of high-resolution UTE musculoskeletal imaging. Methods The GIRF was measured using the standard hardware of a 3 Tesla scanner and applied on 3D radial UTE data (TE: 0.14 ms). Experiments were performed on a phantom, in vivo on a healthy knee, and in vivo on patients with spine fractures. UTE images were reconstructed twice, first using the GIRF-corrected gradient waveforms and second using nominal-corrected waveforms, correcting for the low-pass filter characteristic of the gradient chain. Results Images reconstructed with the nominal-corrected gradient waveforms exhibited blurring and showed edge artifacts. The blurring and the edge artifacts were reduced when the GIRF-corrected gradient waveforms were used, as shown in single-UTE phantom scans and in vivo dual-UTE gradient-echo scans in the knee. Further, the importance of the GIRF-based correction was indicated in UTE images of the lumbar spine, where thin bone structures disappeared when the nominal correction was employed. Conclusion The presented GIRF-based trajectory correction method using standard scanner hardware can improve the quality of high-resolution UTE musculoskeletal imaging.},
+  langid = {english},
+  keywords = {eddy currents,gradient imperfections,k-space trajectory distortions,MRI,short species,UTE imaging},
+  file = {C\:\\Users\\pvalsala\\Zotero\\storage\\FHTEKLCZ\\Kronthaler et al. - 2021 - Trajectory correction based on the gradient impulse response function improves high-resolution UTE i.pdf;C\:\\Users\\pvalsala\\Zotero\\storage\\T2ZPUF2E\\mrm.html}
 }
 
 @article{krugerPhysiologicalNoiseOxygenationsensitive2001,
@@ -4332,6 +4390,23 @@
   langid = {english},
   keywords = {2D and 3D acquisition,BOLD contrast,functional MRI,spiral k-space trajectory},
   file = {C:\Users\pvalsala\Zotero\storage\739PQI8A\Lai and Glover - 1998 - Three-dimensional spiral fMRI technique A compari.pdf}
+}
+
+@article{lallySteadystateFreePrecession,
+  title = {Steady-State Free Precession for {{T2}}* Relaxometry: {{All}} Echoes in Every Readout with k-Space Aliasing},
+  shorttitle = {Steady-State Free Precession for {{T2}}* Relaxometry},
+  author = {Lally, Peter J. and Jin, Yifei and Huo, Zimu and Beitone, Coraline and Chiew, Mark and Matthews, Paul M. and Miller, Karla L. and Bangerter, Neal K.},
+  journaltitle = {Magnetic Resonance in Medicine},
+  volume = {n/a},
+  number = {n/a},
+  issn = {1522-2594},
+  doi = {10.1002/mrm.30590},
+  url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.30590},
+  urldate = {2025-06-03},
+  abstract = {Purpose Multi-echo gradient echo imaging is useful for a range of applications including relaxometry, susceptibility mapping, and quantifying relative proportions of fat and water. This relies primarily on long-TR multi-echo gradient echo sequences (FLASH), which by design isolate one signal component (i.e., echo) at a time per readout. In this work, we propose an alternative strategy that simultaneously measures all signal components at once in every readout event with an N-periodic SSFP sequence. Essentially, we Fourier encode the signals into an “F-k space” similar to the “TE-k space” of a multi-echo gradient echo acquisition. This enables an efficient, short-TR relaxometry experiment where signals benefit from averaging effects over multiple excitations. Theory and Methods In the presented approach, multiple echoes are recorded simultaneously and separated by their differing phase evolution over multiple TRs. At low flip angles the relative echo amplitudes and phases are equivalent to those acquired sequentially from a multi-echo FLASH, in terms of both T2* weighting and spatial phase distributions. The two approaches were compared for the example of R2* relaxometry in a phantom and in human volunteers. Results The proposed approach shows close agreement in R2* estimation with multi-echo FLASH, with the advantage of more rapid temporal sampling. Conclusion The proposed approach is a promising alternative to other relaxometry approaches, by measuring signals from multiple echo pathways simultaneously and separating them based on a simple analytical model.},
+  langid = {english},
+  keywords = {FLASH,OSSI,SSFP,T2*},
+  file = {C\:\\Users\\pvalsala\\Zotero\\storage\\8MNIERQK\\Lally et al. - Steady-state free precession for T2 relaxometry All echoes in every readout with k-space aliasing.pdf;C\:\\Users\\pvalsala\\Zotero\\storage\\IJ9DWMDK\\mrm.html}
 }
 
 @article{lattaKspaceTrajectoryMapping2017,
@@ -6353,6 +6428,22 @@
   file = {C\:\\Users\\pvalsala\\Zotero\\storage\\LADJ2M3W\\Poser et al. - 2010 - Three dimensional echo-planar imaging at 7 Tesla.pdf;C\:\\Users\\pvalsala\\Zotero\\storage\\6HAPFBJI\\S1053811910001473.html}
 }
 
+@article{povolniEasyScalableLowcost2025,
+  title = {Easy Scalable, Low-Cost Open-Source Magnetic Field Detection System for Evaluating Low-Field {{MRI}} Magnets Using a Motion-Tracked Robot},
+  author = {Povolni, Pavel and Bendfeld, Robin and Maltsev, Sergej and Samlow, Judith and Glang, Felix and Valsala, Praveen Iyyappan and Goerner, Dominique and Bosch, Dario and Mueller, Sebastian and Birk, Florian and Buckenmaier, Kai and Scheffler, Klaus},
+  date = {2025-04-05},
+  journaltitle = {Magnetic Resonance Materials in Physics, Biology and Medicine},
+  shortjournal = {Magn Reson Mater Phy},
+  issn = {1352-8661},
+  doi = {10.1007/s10334-025-01239-1},
+  url = {https://doi.org/10.1007/s10334-025-01239-1},
+  urldate = {2025-06-03},
+  abstract = {Low-field magnetic resonance imaging is currently developing into a valuable diagnostic tool due to its simplicity of magnet array designs. Particularly, this allows the development of scanners as part of educational workshops, thus ensuring knowledge transfer and empowering local scientists to design tailored solutions for specific local problems. To obtain the maximum performance, the magnet needs to be shimmed requiring an automated system measuring the spatial magnetic field distribution.},
+  langid = {english},
+  keywords = {Astrophysical magnetic fields,Low-cost hardware,Low-field magnetic resonance imaging,Magnetic devices,Magnetic field mapping,Magnetic Materials,Magnetic tweezers,Magnetoencephalography,Open-source hardware,Robotics,Sensors},
+  file = {C:\Users\pvalsala\Zotero\storage\H864M464\Povolni et al. - 2025 - Easy scalable, low-cost open-source magnetic field detection system for evaluating low-field MRI mag.pdf}
+}
+
 @article{presentationsHHSPublicAccess2016,
   title = {{{HHS Public Access}}},
   author = {Presentations, Clinical and Factors, Prognostic},
@@ -6516,20 +6607,22 @@
   keywords = {current measurement,gradient amplifier,gradient impulse response function,MRI,non-Cartesian,ultrashort TE}
 }
 
-@article{rahmerRapidAcquisition3D2019,
+@article{rahmerRapidAcquisition3D2019a,
   title = {Rapid Acquisition of the {{3D MRI}} Gradient Impulse Response Function Using a Simple Phantom Measurement},
   author = {Rahmer, Jürgen and Mazurkewitz, Peter and Börnert, Peter and Nielsen, Tim},
-  date = {2019-12},
+  date = {2019},
   journaltitle = {Magnetic Resonance in Medicine},
-  shortjournal = {Magn Reson Med},
   volume = {82},
   number = {6},
   pages = {2146--2159},
-  issn = {0740-3194, 1522-2594},
+  issn = {1522-2594},
   doi = {10.1002/mrm.27902},
-  url = {https://onlinelibrary.wiley.com/doi/10.1002/mrm.27902},
-  urldate = {2021-11-07},
-  langid = {english}
+  url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.27902},
+  urldate = {2025-06-05},
+  abstract = {Purpose To provide a simple tool for rapid measurement of the 3D gradient modulation transfer function (GMTF) of clinical MRI systems using a phantom. Knowledge of the transfer function is useful for gradient chain characterization, system calibration, and improvement of image reconstruction results. Methods Starting from the well-established thin slice method used for phantom-based measurement of the 1D GMTF, we add phase encoding to partition the thin slices into voxels that act as localized field probes. From the signal phase evolution measured at the 3D voxel positions, the GMTF can be derived for cross and higher order spatial terms represented by spherical harmonics up to 3rd order. Results Using spherical phantoms, 16 GMTFs representing all terms up to 3rd order harmonics can be determined in a scan time of {$<$}2 min. A large voxel volume of {$>$}1 mL yields high SNR, enabling signal acquisition using the system's body coil. The method is applied for improving system calibration and for characterizing the effect of additional hardware in the bore. Conclusion The presented method seems well-suited for rapid measurement of the GMTF of a clinical system, as it delivers high-quality results in a short scan time.},
+  langid = {english},
+  keywords = {GIRF,gradient impulse response function,gradient system,magnetic resonance imaging,MRI,transfer function},
+  file = {C\:\\Users\\pvalsala\\Zotero\\storage\\VDCDKYBY\\Rahmer et al. - 2019 - Rapid acquisition of the 3D MRI gradient impulse response function using a simple phantom measuremen.pdf;C\:\\Users\\pvalsala\\Zotero\\storage\\LCEUGC2E\\mrm.html}
 }
 
 @article{rajMaximumLikelihoodApproach2007,
@@ -7311,25 +7404,6 @@
   keywords = {22'-Dipyridyl,Animals,Chelating Agents,Edetic Acid,Erythrocytes,Hemolysin Proteins,Hemolysis,Humans,Osmolar Concentration,Pentetic Acid,Phenanthrolines,Phosphoric Diester Hydrolases,Rabbits,Sheep,Spectrophotometry,Sphingomyelin Phosphodiesterase,Temperature,Time Factors}
 }
 
-@article{smythPhenomenonHotcoldHemolysis1975a,
-  title = {Phenomenon of Hot-Cold Hemolysis: Chelator-Induced Lysis of Sphingomyelinase-Treated Erythrocytes},
-  shorttitle = {Phenomenon of Hot-Cold Hemolysis},
-  author = {Smyth, C. J. and Möllby, R. and Wadström, T.},
-  date = {1975-11},
-  journaltitle = {Infection and Immunity},
-  shortjournal = {Infect. Immun.},
-  volume = {12},
-  number = {5},
-  eprint = {333},
-  eprinttype = {pubmed},
-  pages = {1104--1111},
-  issn = {0019-9567},
-  abstract = {Staphylococcus aureus produces a phospholipase C specific for sphingomyelin (beta-hemolysin). Erythrocytes with approximately 50\% sphingomyelin in their membranes, e.g., from sheep, have been shown to have up to 60\% of this phospholipid hydrolyzed by this enzyme at 37 C in isotonic buffered saline without hemolysis. Cooling of sphingomyelinase C-treated erythrocytes to 4 C causes complete lysis of the cells, a phenomenon known as hot-cold hemolysis. The addition of ethylenediaminetetraacetate (EDTA) to sheep erythrocytes preincubated with sphingomyelinase C was found to induce rapid hemolysis at 37 C. The treated cells became susceptible to chelator-induced hemolysis and to hot-cold hemolysis simultaneously, and the degree of lysis of both mechanisms increased equally with prolonged preincubation with sphingomyelinase C. Erythrocytes of species not readily susceptible to hot-cold hemolysis were equally insusceptible to chelator-induced lysis. Chelators of the EDTA series were the most effective, whereas chelators more specific for Ca2+, Zn2+, Fe2+, Cu2+, and Mg2+ were without effect. The rate of chelator-induced lysis was dependent on the preincubation period with beta-hemolysin and on the concentration of chelator added. The optimal concentration of EDTA was found to equal the amount of exogenously added Mg2+, a cation necessary for sphingomyelinase C activity. Hypotonicity increased the rate of chelator-induced hemolysis, whereas increasing the osmotic pressure to twice isotonic completely inhibited chelator-induced lysis. The data suggest that exogenously added and/or membrane-bound divalent cations are important for the stability of sphingomyelin-depleted membranes. The phenomenon of hot-cold hemolysis may be a consequence of the temperature dependence of divalent ion stabilization.},
-  langid = {english},
-  pmcid = {PMC415404},
-  keywords = {22'-Dipyridyl,Animals,Chelating Agents,Edetic Acid,Erythrocytes,Hemolysin Proteins,Hemolysis,Humans,Osmolar Concentration,Pentetic Acid,Phenanthrolines,Phosphoric Diester Hydrolases,Rabbits,Sheep,Spectrophotometry,Sphingomyelin Phosphodiesterase,Temperature,Time Factors}
-}
-
 @incollection{sodicksonSpatialEncodingUsing2007,
   title = {Spatial {{Encoding Using Multiple}} Rf {{Coils}}: {{SMASH Imaging}} and {{Parallel MRI}}},
   booktitle = {Encyclopedia of {{Magnetic Resonance}}},
@@ -7857,6 +7931,16 @@
   abstract = {Functional MRI using blood oxygenation level-dependent (BOLD) contrast indirectly probes neuronal activity via evoked cerebral blood volume (CBV) and oxygenation changes. Thus, its spatio-temporal characteristics are determined by vascular physiology and MRI parameters. In this paper, we focus on the spatial distribution and time course of the fMRI signal and their magnetic field strength dependence. Even though much is still unknown, the following consistent picture is emerging: a) For high spatial resolution imaging, fMRI contrast-tonoise increases supra-linearly with field strength. b) The location and spacing of penetrating arteries and ascending veins in the cortical tissue are not correlated to cortical columns, imposing limitations on achievable point-spread function (PSF) in fMRI. c) Baseline CBV distribution may vary over cortical layers biasing fMRI signal to layers with high CBV values. d) The largest CBV change is in the tissue microvasculature, less in surface arteries and even less in pial veins. e) Venous CBV changes are only relevant for longer stimuli, and oxygenation changes are largest in post-capillary blood vessels. f) The balloon effect (i.e. slow recovery of CBV to baseline) is located in the tissue, consistent with the fact that the post-stimulus undershoot has narrower spatial PSF than the positive BOLD response. g) The onset time following stimulation has been found to be shortest in middle/ lower layers, both in optical imaging and high-resolution fMRI, but we argue and demonstrate with simulations that varying signal latencies can also be caused by vascular properties and, therefore, may potentially not be interpreted as neural latencies. With simulations, we illustrate the field strength dependency of fMRI signal transients, such as the adaptation during stimulation, initial dip and the post-stimulus undershoot. In sum, vascular structure and function impose limitations on the achievable PSF of fMRI and give rise to complex fMRI transients, which contain time-varying amount of excitatory and inhibitory neuronal information. Nevertheless, non-invasive fMRI at ultra-high magnetic fields not only provides high contrast-to-noise but also an unprecedented detailed view on cognitive processes in the human brain.},
   langid = {english},
   file = {C:\Users\pvalsala\Zotero\storage\FEVTEBNA\main.pdf}
+}
+
+@inproceedings{valsalaCombiningMultiechoPhase2024,
+  title = {Combining Multi-Echo and Phase Cycling in {{bSSFP}} Acquisition to Improve Whole-Brain Deuterium Metabolic Imaging at 9.4 {{T}}},
+  booktitle = {Proc. {{Intl}}. {{Soc}}. {{Mag}}. {{Reson}}. {{Med}}. 32 (2024)},
+  author = {Valsala, Praveen Iyyappan and Pohmann, Rolf and Heule, Rahel and Avdievich, Nikolai and Engelmann, Jörn and Kuebler, Laura and Martins, André F. and Scheffler, Klaus},
+  date = {2024},
+  location = {Singapore},
+  url = {https://cds.ismrm.org/protected/24MProceedings/PDFfiles/0224_O6lfTpQqW.html},
+  urldate = {2025-06-08}
 }
 
 @online{valsalaHighresolutionDeuteriumMetabolic2025,
@@ -8657,19 +8741,6 @@
   file = {C:\Users\pvalsala\Zotero\storage\VJ46UH9U\Zhang et al._2013_Coil compression for accelerated imaging with Cartesian sampling.pdf}
 }
 
-@article{zhangMicrobialOpsinFamily,
-  title = {The {{Microbial Opsin Family}} of {{Optogenetic Tools}}},
-  author = {Zhang, Feng and Vierock, Johannes and Yizhar, Ofer and Fenno, Lief E. and Tsunoda, Satoshi and Kianianmomeni, Arash and Prigge, Matthias and Berndt, Andre and Cushman, John and Polle, Jürgen and Magnuson, Jon and Hegemann, Peter and Deisseroth, Karl},
-  journaltitle = {Cell},
-  volume = {147},
-  number = {7},
-  pages = {1446--1457},
-  issn = {0092-8674},
-  doi = {10.1016/j.cell.2011.12.004},
-  url = {http://dx.doi.org/10.1016/j.cell.2011.12.004},
-  urldate = {2016-07-03}
-}
-
 @article{zhanInversionProfilesAdiabatic2002,
   title = {Inversion Profiles of Adiabatic Inversion Pulses for Flowing Spins: {{The}} Effects on Labeling Efficiency and Labeling Accuracy in Perfusion Imaging with Pulsed Arterial Spin-Labeling},
   author = {Zhan, Wang and Gu, Hong and Silbersweig, David A. and Stern, Emily and Yang, Yihong},
@@ -8918,6 +8989,12 @@
 
 @inproceedings{zotero-974,
   type = {inproceedings}
+}
+
+@online{zotero-item-1624,
+  url = {https://submissions.mirasmart.com/ISMRM2024/ViewSubmissionTeaser.aspx},
+  urldate = {2025-06-06},
+  file = {C:\Users\pvalsala\Zotero\storage\K27T3B82\ViewSubmissionTeaser.html}
 }
 
 @article{zurAnalysisFastImaging1988,

@@ -16,19 +16,25 @@ where $\lambda=N_\text{int}/\text{FOV}$, $N_\text{int}$ is the number of spiral 
 \subsection{NUFFT}
 The spiral k-space sampling results in a data that doesn't lie on a equidistant Cartesian grid preventing the use of efficient \gls{FFT} algorithm for image reconstruction. To compute Fourier transform of the data sampled on a non-equidistant grid, several efficient \gls{NUFFT} algorithms exists\cite{duttFastFourierTransforms1993} were introduced. The most popular among them is the gridding method where a shift-invariant interpolating kernel is used to regrid the non-equidistant data into an oversampled Cartesian grid followed by efficient \gls{FFT} and removing the blurring introduced by the interpolation kernel through deapodization\cite{jacksonSelectionConvolutionFunction1991}. This use of same shift-invariant kernel throughout the k-space reduces the memory requirement of gridding operation. Ideally, \emph{sinc} kernel gives the exact \gls{DFT} and needs no further no deapodization. However, the large support of \emph{sinc} kernel makes it computationally inefficient. Therefore, trade-off between approximation error and computational complexity of the interpolating kernel has to be reached. The \emph{Kaiser-Bessel} function is a popular choice because of its small approximation error for a relatively small kernel width and oversampling ratio\cite{beattyRapidGriddingReconstruction2005}. The approximation error can be further minimized if an ideal interpolating kernel is estimated from the trajectory. For this reason, the min-max interpolator\cite{fesslerNonuniformFastFourier2003} and its efficient implementation as \emph{Toplitz} matrix\cite{fesslerToeplitzbasedIterativeImage2005} is used in this work.
 \subsection{Density compensation}
-In addition to \gls{NUFFT}, the sampling density of the trajectory must be compensated to avoid accentuation of the spatial frequencies which are densely sampled. Generally, the low spatial frequencies during the slew-rate limited regime of the spiral trajectory are densely sampled. When spiral arms have only a few windings,a simple \emph{rho filter} used for the filtered back-projection of computed-tomography and radial MR imaging could be used for density compensation. Among the several methods proposed for density compensation\cite{hogeDensityCompensationFunctions1997,pipeSamplingDensityCompensation1999,malikGriddingAlgorithmEfficient2005}, the reciprocal of \emph{area density function} introduced by Jackson et al\cite{jacksonSelectionConvolutionFunction1991} is used in this work.      
+In addition to \gls{NUFFT}, the sampling density of the trajectory must be compensated to avoid accentuation of some spatial frequencies which are densely sampled. Generally, the densely-sampled low spatial frequencies during the slew-rate limited regime of the spiral trajectory resulting in blurring. When spiral arms have only a few windings, a simple \emph{rho filter} used for the filtered back-projection reconstruction of computed-tomography and radial MR imaging could be used for density compensation. However, density compensation function become non-linear as trajectory transitions into amplitude restricted regime. Among the several numerical methods proposed for density compensation\cite{hogeDensityCompensationFunctions1997,pipeSamplingDensityCompensation1999,malikGriddingAlgorithmEfficient2005}, the reciprocal of \emph{area density function} introduced by Jackson et al\cite{jacksonSelectionConvolutionFunction1991} is used in this work.      
 
 \subsection{Gradient Impulse Response Function}
 
-(linear model, why many triangles, figure
-)
-
+The fidelity of gradient system is limited by eddy current effects, mechanical resonances, coil coupling, temperature and amplifier bandwidth. The resulting inconsistencies in the trajectory information result in undesired image blurring, distortions, rotation and translation. To improve the image quality, the actual trajectory information from a direct measurement\cite{barmetSpatiotemporalMagneticField2008,vannesjoImageReconstructionUsing2016} or a prediction model\cite{vannesjoGradientSystemCharacterization2013} should be included into the reconstruction framework. Owing to the technological challenges of concurrent monitoring of the gradient fields, a \gls{LTI} model of the gradient system known as \gls{GIRF} is used for trajectory prediction. The \gls{GIRF} is determined by observing the response of the system for the known inputs. Typically, triangular pulses of different durations are applied to a the individual gradient axis and the resulting spatio-temporal field evolution are measured with a phantom\cite{rahmerRapidAcquisition3D2019a} or a dedicated field camera setup\cite{vannesjoGradientSystemCharacterization2013}. The multiple triangular pulses are used to probe the \gls{GIRF} in all frequencies without any blind spots as shown in \cref{fig:GIRF}. Alternatively, a frequency sweeping chirp waveform can be used for rapid calibration\cite{kronthalerTrajectoryCorrectionBased2021}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{graphics/GIRF.png}
 	\caption{Sensitivity of gradient impulse response function (GIRF) measurement. The input triangular gradient waveform of various duration and their frequency response. }
 	\label{fig:GIRF}
 \end{figure}
+
+If the input triangular pulses in Fourier domain $I_j(\omega)$ yield the system responses $\hat{O}_j(\omega)$, then the \gls{GIRF} $\hat{H}(\omega)$ can be calculated according to Vannesjo et al.\cite{vannesjoGradientSystemCharacterization2013}
+
+\begin{equation}
+	\hat{H}(\omega)=\frac{\sum_{j}I^*_j(\omega)\cdot\hat{O}_j(\omega)}{\sum_{j}|I_j(\omega)|^2}
+\end{equation} 
+
+
 
 
 \subsection{Spiral Deblurring}
@@ -38,7 +44,12 @@ In addition to \gls{NUFFT}, the sampling density of the trajectory must be compe
 
 where $c_i(t)$ and $c_i(\Delta\omega)$ are the interpolation coefficients in  estimated with least-squares.
 
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{graphics/spiral_psf.png}
+	\caption{The influence of spatial $B_0$ off-resonance to the PSF.}
+	\label{fig:spiral_psf}
+\end{figure}
 
 
 
