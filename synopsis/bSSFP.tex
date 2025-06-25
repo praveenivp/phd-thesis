@@ -1,8 +1,7 @@
-\section{balanced Steady State Free Precession}
-\label{sec:bSSFP}
-The rapid steady-state \gls{MRI} sequences are a sub-category of fast gradient-echo sequences where the excitation pulses are applied consecutively at a constant but much faster rate than the longitudinal and transverse relaxation times $(T_1, T_2 << TR)$. In addition to enabling fast imaging, the signal dependence on the previous excitations generates novel structural and functional contrast mechanism. Depending on whether the transverse magnetization is spoiled/excluded after each repetition, the steady-state methods can be classified into steady-state incoherent and coherent methods as shown in \cref{fig:ss_seq}. The incohorent methods such as \gls{FLASH}\cite{haaseFLASHImagingRapid1986}/\gls{SPGR} eliminate the residual transverse magnetization before the next excitation with gradient spoiling and quadratic \gls{RF} phase increments known as \gls{RF} spoiling. Despite the first rapid steady state method \gls{FLASH} being proposed later than existing gradient-echo \gls{EPI} \cite{mansfieldMultiplanarImageFormation1977} and spin-echo \gls{RARE} \cite{hennigRAREImagingFast1986} methods, it was quickly adopted into clinical routine because of its high image quality, desirable $T_1$ contrast and reliability.
+
+The rapid steady-state \gls{MRI} sequences are a sub-category of fast gradient-echo sequences where the excitation pulses are applied consecutively at a constant but much faster rate than the longitudinal and transverse relaxation times $(T_1, T_2 << TR)$. In addition to enabling fast imaging, the signal dependence on the previous excitations generates novel structural and functional contrast mechanism. Depending on whether the transverse magnetization is spoiled/excluded after each repetition, the steady-state methods can be classified into steady-state incoherent and coherent methods as shown in \cref{fig:ss_seq}. The incohorent methods such as \gls{FLASH}\cite{haaseFLASHImagingRapid1986}/\gls{SPGR} eliminate the residual transverse magnetization before the next excitation with gradient spoiling and quadratic \gls{RF} phase increments known as \gls{RF} spoiling. Despite the first rapid steady state method \gls{FLASH} being proposed later than existing gradient-echo \gls{EPI} \cite{mansfieldMultiplanarImageFormation1977} and spin-echo \gls{RARE} \cite{hennigRAREImagingFast1986} methods, it was quickly adopted into clinical routine because of its speed, high image quality, desirable $T_1$ contrast and reliability.
 \newline\newline
-In coherent methods, both longitudinal and transverse components evolves over multiple repetition resulting in a more complicated signal dependence on flip angle, $T_1$, $T_2$ and off-resonance. By carefully adjusting the unbalanced gradient moments, \gls{FID} part of \gls{SSFP} signal with prominent $T_1$ weighting or Echo part of \gls{SSFP} signal with prominent $T_2$ weighting can be acquired. The \gls{bSSFP} method\cite{zurMotioninsensitiveSteadystateFree1990} is a special case of coherent steady-state sequence where the gradient moment is nulled after each repetition. The gradient moment nulling makes the \gls{bSSFP} method highly motion insensitive and additionally, provides the possibility to simultaneously acquire signal from all the signal pathways.  The aliasing of signal from higher order pathways (i.e. transverse magnetization experiencing multiple RF pulses and dephasing over several repetitions) improves the SNR of the bSSFP acquisition and also, makes it more sensitive to additional phase accumulations due to temporal field drifts and spatial $B_0$ off-resonance. 
+In coherent methods, both longitudinal and transverse components evolves over multiple repetition resulting in a more complicated signal dependence on flip angle, $T_1$, $T_2$ and off-resonance. By carefully adjusting the unbalanced gradient moments, \gls{FID} part of \gls{SSFP} signal with prominent $T_1$ weighting or Echo part of \gls{SSFP} signal with prominent $T_2$ weighting can be acquired. The \gls{bSSFP} method\cite{carrSteadyStateFreePrecession1958, zurMotioninsensitiveSteadystateFree1990} is a special case of coherent steady-state sequence where the gradient moment is nulled after each repetition. The gradient moment nulling makes the \gls{bSSFP} acquisition highly motion insensitive and additionally, provides the possibility to simultaneously acquire signal from all the signal pathways.  The aliasing of signal from higher order pathways (i.e. transverse magnetization experiencing multiple RF pulses and dephasing over several repetitions) improves the \gls{SNR} of the bSSFP acquisition and also, makes it more sensitive to additional phase accumulations due to temporal field drifts and spatial $B_0$ off-resonance. Due the limited scope of this thesis, only the \gls{bSSFP} signal model is introduced in the following sections.
 
 \begin{figure}[H]
 	\centering
@@ -11,13 +10,17 @@ In coherent methods, both longitudinal and transverse components evolves over mu
 	\label{fig:ss_seq}
 \end{figure}
 
-As the gradient moment is nulled, the steady-state transverse magnetization is summation of all echo amplitudes. The transverse magnetization after the RF pulse $M_+(t=0)$ is given by \cite{zurMotioninsensitiveSteadystateFree1990}
+\subsection{Transient phase: the transition to steady-state}
+In order to measure the steady-state signal, the magnetization must be brought to the desirable equilibrium condition. Depending on relaxation time, sequence parameters and off-resonance, several repetitions of excitation, relaxation and free precession are required for the magnetization to reach the steady-state \cite{bieriFundamentalsBalancedSteady2013}. Normally, the magnetization will reach steady-state after repetitions with no signal acquisition known as dummy cycles for the duration of $5T_1$ \cite{schefflerTransientPhaseBalanced2003}. Often this long preparation is unpractical. Therefore, short preparation blocks were proposed such as ($\alpha/2$ pulse - TR/2) preparation\cite{deimingMagnetizationPreparedTrue1994}, linear flip angle ramp \cite{nishimuraAnalysisReductionTransient} and fully optimized preparation block based on eigenvector analysis \cite{hargreavesCharacterizationReductionTransient2001,jaynesMatrixTreatmentNuclear1955}. The flip angle ramp is usually favored for having a shorter transient phase with much reduced oscillatory component.    
+
+\subsection{bSSFP frequency response}
+The steady-state signal of \gls{bSSFP} acquisition have a strong dependence on the off-resonance unlike the gradient or RF-spoiled \gls{GRE} counterparts.  As the gradient moment is nulled, the steady-state transverse magnetization is summation of all echo amplitudes as illustrated in \cref{fig:bSSFP_echoes}. The transverse magnetization after the RF pulse $M_+(t=0)$ is given by \cite{zurMotioninsensitiveSteadystateFree1990}
 
 \begin{equation}
 	M_+(t=0) = \sum_{n=-\infty}^{\infty} A_n e^{jn\Phi}
 \end{equation}
 
-where j is $\sqrt{-1}$, $A_n$ is the $n^{th}$ echo amplitude and $\Phi$ is the total phase accumulation within a single \gls{TR}. Ideally, $\Phi$ is zero for on-resonant magnetization. However, due to spatial $B_0$ inhomogeneity and eddy current effects, echo amplitudes can negatively interfere at some location creating a low signal region called bandings. 
+where j is $\sqrt{-1}$, $A_n$ is the $n^{th}$ echo amplitude and $\Phi$ is the total phase accumulation within a single \gls{TR}. Ideally, $\Phi$ is zero for on-resonant magnetization. However, due to spatial $B_0$ inhomogeneity and eddy current effects\cite{bieriAnalysisCompensationEddy2005}, echo amplitudes can negatively interfere at some location creating a low signal region called bandings. The frequency sensitivity of the \gls{bSSFP} signal is characterized by the \gls{bSSFP} frequency response or simply bSSFP profile.
 
 
 \begin{figure}[H]
@@ -26,6 +29,8 @@ where j is $\sqrt{-1}$, $A_n$ is the $n^{th}$ echo amplitude and $\Phi$ is the t
 	\caption{Anatomy of bSSFP signal. It is the summation of different echoes.}
 	\label{fig:bSSFP_echoes}
 \end{figure}
+
+
 
 \subsection{phase cycling}
 
@@ -45,11 +50,14 @@ In order to separate the contributions from individual echo, an additional phase
 
 
 
+\subsection{bSSFP and fMRI}
+After the Ogawa et al.\cite{ogawaBrainMagneticResonance1990} reported measuring brain function with susceptibility changes in the blood in 1990, the first \gls{bSSFP} \gls{fMRI} application was reported only in 2001 \cite{schefflerDetectionBOLDChanges2001}. The initial methods\cite{schefflerDetectionBOLDChanges2001,millerFunctionalBrainImaging2003} mainly capitalized on the frequency sensitivity of the \gls{bSSFP} to detect \gls{BOLD} changes in the transition band. In 2005, Bowen et al. \cite{bowenHighFieldBalancedSSFP2005,bowenHighFieldBalancedSSFP2006} reported the first passband bSSFP and suggests its lower sensitivity to large draining veins because of its spin-echo properties\cite{schefflerTrueFISPGradientechoSpinecho2003}. However, the BOLD signal change with \gls{bSSFP} acquisition is only half of that of the GRE-BOLD\cite{schefflerHighresolutionMappingNeuronal2016}. 
+
 
 \subsection{Things I want to cover in this}
 
 \begin{itemize}
-	\item[-] derive steady state equation?
+	\item[-] derive steady state equation? no
 	\item[-] show SNR adavantage for particular T2/T1 ratio or atleast plot.
 	\item[-] intra-voxel spectrum and refocusing behavior
 	\end{itemize}

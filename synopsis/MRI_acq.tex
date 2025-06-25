@@ -1,8 +1,9 @@
-\section{NMR signal} \label{sec:nmr}
+
 The source of \gls{NMR} signal arises from the intrinsic angular momentum of the atomic nuclei also known as spin. Although the behavior of the spin is quantum mechanical in nature, classical models are mostly sufficient in the scope of this thesis except for topics such as polarization and quadrapolar relaxation. Therefore, the following sections rely mostly on the classical picture of assuming macroscopic magnetization as a "spinning tiny magnets" in an external magnetic fields which obeys some classical rotational kinematics and differential equations. The complete quantum mechanical treatment of spins and origin of \gls{NMR} signal is covered in numerous sources\cite{levittSpinDynamicsBasics}\cite{haackeMagneticResonanceImaging1999}. 
 \subsection{Macroscopic Magnetization}
 The individual nuclei with non-zero spin are also associated with the magnetic moment. However, these magnetic moments are aligned randomly  in the absence of external magnetic field $B_0$ resulting in no net magnetic moment. According to quantum mechanics, when the spins experience an external magnetic field $B_0$, the energy state of the spin system undergoes splitting known as the \emph{Zeeman effect} into $2s+1$ discrete energy levels, where $s$ is the spin quantum number of the nuclei. These energy levels are typically $\Delta E=\hbar\gamma B_0$ apart without other interactions\cite{levittSpinDynamicsBasics}, where $\gamma$ is the gyromagnetic ratio for the nucleus and  $\hbar$ is the reduced Planck's constant. The energy difference also implies the spins are in some sense precessing around external magnetic field at the \emph{Larmor frequency} $\omega_0= \gamma B_0$. The electronic environment near nuclei can influence the magnetic field felt by the nuclei and change the Larmor frequency $\omega= \gamma B_0(1+\delta)$, where $\delta$ is the \emph{chemical shift} defined relative to the Larmor/reference frequency $\omega_0$ to make it field independent as
 \begin{equation}
+	\label{eq:chemshift}
 	\delta=\dfrac{\omega-\omega_0}{\omega_0}
 \end{equation}
 Additionally, this energy splitting favors the spin population to be in the low energy state while the thermal energy of the system tries to equalize the population in all levels. The emerging \emph{macroscopic magnetization} $M_0$ from this population imbalance can be estimated using the \emph{Boltzmann distribution}, which describes the probability of spins occupying different energy states based on their energy and the system's temperature. At room temperature, nuclear magnetic energy levels are much smaller than the thermal energy of the system(i.e $\hbar\gamma B_0 \ll kT$, where $k$ is Boltzmann's constant and T is the temperature in Kelvin). With this assumption, the infinite series from Boltzmann distribution simplifies to an analytical expression for observable \emph{macroscopic magnetization} $M_0$ that is aligned along the $B_0$ in an \gls{NMR} experiment\cite{haackeMagneticResonanceImaging1999}.
@@ -40,6 +41,7 @@ The behavior of macroscopic magnetization under the influence of time varying $B
 	 \end{pmatrix} 
 	 + \begin{pmatrix} 0 
 	 	\\ 0 \\ M_0/T_1 \end{pmatrix}
+	 	\label{eq:bloch}
 \end{equation}
 where
 	\begin{equation}
@@ -51,16 +53,19 @@ $M_x'=\operatorname{Re}(e^{j\omega_\text{RF}t}M_{xy})$, $M_y'=\operatorname{Im}(
 The generated \gls{NMR} signal explained in the previous section arises from the entire sensitive volume of the detection coil. In a standard \gls{MRI} setup, the signal is spatially encoded with the three orthogonal linear spatially varying fields referred as \emph{gradients} $\textbf{G}$. In the rotating frame, the spatial phase accrual of the signal as the result of gradient fields is
 
 \begin{equation}
+	\label{eq:phaseaccrural}
 	\Delta\phi(\textbf{r},t)=-\gamma\int_{0}^{t} \textbf{G}(t')\textbf{r} \text{d}t'=-\textbf{k}(t)\cdot\textbf{r}
 \end{equation}
 where 
 \begin{equation}
+	\label{eq:kspace}
 	\textbf{k}(t)=\gamma\int_{o}^{t}\textbf{G}(t')\text{d}t'
 \end{equation}
 
 $\textbf{k}$ is the co-ordinate location in the reciprocal space of the image called \emph{k-space} corresponding to a particular spatial frequency. The received signal $s(t)$ of an object with a spin density distribution $\rho(\textbf{r})$ modulated by the gradient field in the receive coil with sensitivity $W(\textbf{r})$ is given by 
 \begin{equation}
+	\label{eq:signal}
 	s(t) \propto \int_V \rho(\textbf{r})W(\textbf{r})e^{-j\textbf{k}(t)\textbf{r}} \text{d}V
 \end{equation}
 
-If sufficient k-space samples are acquired for a given resolution and \gls{FOV} dictated by the \emph{Nyquist-Shannon sampling theorem}, a aliasing-free MR image can be reconstructed with the \gls{DFT}. In a conventional \gls{MRI}, the k-space samples are acquired in a uniform Cartesian grid in a line-by-line fashion. Since this a slow process, fast techniques to acquire the entire k-space with a single excitation (single-shot)\cite{mansfieldMultiplanarImageFormation1977} and few excitation (multi-shot) were proposed.
+If sufficient k-space samples are acquired for a given resolution and \gls{FOV} as dictated by the \emph{Nyquist-Shannon sampling theorem}\cite{shannonCommunicationPresenceNoise1949}, an aliasing-free MR image can be reconstructed using the \gls{DFT}. In a conventional \gls{MRI}, the k-space samples are acquired in a uniformly-spaced Cartesian grid in a line-by-line fashion to use the much faster realization of \gls{DFT} called \gls{FFT}\cite{cooleyAlgorithmMachineCalculation1965}. Due to the time-consuming nature of this acquisition process, several fast techniques has been developed to acquire the entire k-space with a single excitation (single-shot)\cite{mansfieldMultiplanarImageFormation1977} and a limited number of excitations (multi-shot).
