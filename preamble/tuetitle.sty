@@ -40,11 +40,12 @@
 
 
 \if@internal@titlepage
-\newcommand*{\@dean}{%
-	\PackageError{tuetitle}{\string\dean\space missing}{%
-		You have to use \string\dean\space to set up the faculty dean.}%
+\newcommand*{\@deanMaths}{%
+	\PackageError{tuetitle}{\string\deanMaths\space missing}{%
+		You have to use \string\deanMaths\space to set up the Maths faculty dean.}%
 }
-\newcommand*{\dean}[1]{\gdef\@dean{#1}}
+\newcommand*{\deanMaths}[1]{\gdef\@deanMaths{#1}}
+\newcommand*{\deanMedicine}[1]{\gdef\@deanMedicine{#1}}
 
 \newcommand*{\@experts}{%
 	\PackageError{tuetitle}{\string\experts\space missing}{%
@@ -53,10 +54,11 @@
 			Name of the Second Expert}'.}%
 }
 \newcommand*{\experts}[1]{\gdef\@experts{#1}}
+\newcommand*{\examiners}[1]{\gdef\@examiners{#1}}
 
 \newcommand*{\dateoforalexamination}[1]{\gdef\@date{#1}}
 \else
-\newcommand*{\dean}[1]{\PackageWarning{tuetitle}{No \string\dean\space necessary\MessageBreak in external title page}}
+\newcommand*{\deanMaths}[1]{\PackageWarning{tuetitle}{No \string\deanMaths\space necessary\MessageBreak in external title page}}
 \newcommand*{\experts}[1]{\PackageWarning{tuetitle}{No \string\experts\space necessary\MessageBreak in external title page}}
 \newcommand*{\dateoforalexamination}[1]%
 {\PackageWarning{tuetitle}{No \string\dateoforalexamination\space necessary\MessageBreak in external title page}}
@@ -68,44 +70,88 @@
 		\centering
 		\vspace*{\stretch{.5}}
 		{\Huge\selectfont\sffamily\strut\ignorespaces\@title\strut}\\[0pt]
-		\vspace*{\stretch{2}}
+		\vspace*{\stretch{1}}
 		\if@phd\expandafter\@firstoftwo\else\expandafter\@secondoftwo\fi
 		{% code for PhD thesis
-			{\fontsize{14.4}{18}\bfseries\sffamily Dissertation}\\[0pt]
-			\vspace*{5pt}
-			{\fontsize{12}{14}\sffamily \fontseries{l}\selectfont%
-				der Mathematisch-Naturwissenschaftlichen Fakult\"{a}t\\[2.5pt]
-				der Eberhard Karls Universit\"{a}t T\"{u}bingen\\[2.5pt]
+			{\fontsize{16.4}{18}\bfseries\sffamily Dissertation}\\[0pt]
+					\vspace*{20pt}
+			{\fontsize{14}{14}\sffamily \fontseries{l}\selectfont%
 				zur Erlangung des Grades eines\\[2.5pt]
 				Doktors der Naturwissenschaften\\[2.5pt]
-				(Dr.\ rer.\ nat.)}\\}
+			
+			\vspace*{20pt}
+			\fontsize{14}{14}\sffamily \fontseries{l}\selectfont%
+				der Mathematisch-Naturwissenschaftlichen Fakult\"{a}t\\[2.5pt]
+								und\\[2.5pt]
+			    			der Medizinischen Fakult\"{a}t\\[2.5pt]
+				der Eberhard Karls Universit\"{a}t T\"{u}bingen\\[2.5pt]
+				}\\}
 		{% code for Habil
 			{\fontsize{14.4}{18}\selectfont\textsc{Habilitationsschrift}}\\[0pt]
 			\vspace*{\stretch{1}}}
 		\vspace*{\stretch{2}}
-		{\fontsize{12}{14}\sffamily \fontseries{l}\selectfont vorgelegt von}\\[0pt]
+		{\fontsize{14}{14}\sffamily \fontseries{l}\selectfont vorgelegt von}\\[0pt]
 		{\Large\sffamily\strut\ignorespaces\@author}\\[2pt]
-		{\fontsize{12}{14}\sffamily \fontseries{l}\selectfont aus \@birthplace}\\[0pt]
+		{\fontsize{14}{14}\sffamily \fontseries{l}\selectfont aus \@birthplace}\\[0pt]
 		\vspace*{\stretch{1}}
-		{\fontsize{12}{14}\sffamily \fontseries{l}\selectfont T\"{u}bingen\\[2.5pt] \@submissionyear}
-		\clearpage\normalsize
+		{\fontsize{14}{14}\sffamily \fontseries{l}\selectfont T\"{u}bingen\\[2.5pt] \@submissionyear}
+		\cleardoublepage\normalsize
+		
 		%
+	
 		\if@phd\if@internal@titlepage
 		\thispagestyle{empty}\raggedright\null\vfill
-		Gedruckt mit Genehmigung der Mathematisch-Naturwissenschaftlichen Fakult\"at der
-		Eberhard Karls Universit\"at T\"ubingen.\par\bigskip\bigskip\bigskip\noindent
+
+		
+		
+		
+		%Gedruckt mit Genehmigung der Mathematisch-Naturwissenschaftlichen Fakult\"at der
+		%Eberhard Karls Universit\"at T\"ubingen.\par\bigskip\bigskip\bigskip\noindent
 		\count@=\@ne
 		\def\and{\unskip\strut\\
 			\global\advance\count@\@ne
 			\the\count@.~Berichterstatter: & \ignorespaces}%
 		\begin{tabular}{@{}ll}
-			Tag der m\"{u}ndlichen Qualifikation: \qquad & \@date \\
+			Tag der mu\"undlichen Pr\"ufung & .........................................\\
 			&\\
-			Dekan: & \@dean \\
-			1. Berichterstatter: & \@experts
+			&\\
+			 Dekan der Math.-Nat. Fakult\"at: & \@deanMaths \\
+			 Dekan der Medizinischen Fakult\"at: & \@deanMedicine\\
+			 &\\
+			 &\\
+			1. Berichterstatter: & \@experts \\
+			&\\
+			&\\
+		    Pr\"ufungskommission: & \@examiners\\
 		\end{tabular}
-		\clearpage
+		\cleardoublepage
 		\fi\fi
+		
+		
+		
+		\vspace*{\stretch{1}}
+		
+		{\fontsize{14}{18}\bfseries\sffamily Erkl\"arung / Declaration: }\\
+		\vspace*{20pt}
+		\justify
+		Ich erkl\"are, dass ich die zur Promotion eingereichte Arbeit mit dem Titel: \emph{\enquote{\@title}}
+		selbst\"andig verfasst, nur die angegebenen Quellen und Hilfsmittel benutzt  und w\"ortlich oder inhaltlich \"uernommene Stellen als solche gekennzeichnet  habe. Ich versichere an Eides statt, dass diese Angaben wahr sind und dass  ich nichts verschwiegen habe. Mir ist bekannt, dass die falsche Abgabe einer  Versicherung an Eides statt mit Freiheitsstrafe bis zu drei Jahren oder mit  Geldstrafe bestraft wird. \\
+		
+		\vspace*{20pt}
+		\justify		
+		I hereby declare that I have produced the work entitled \emph{\enquote{\@title}} submitted for the award of a  doctorate, on my own (without external help), have used only the sources and  aids indicated and have marked passages included from other works, whether  verbatim or in content, as such. I swear upon oath that these statements  are true and that I have not concealed anything. I am aware that making a  false declaration under oath is punishable by a term of imprisonment of up  to three years or by a fine.  
+		\vspace*{60pt}
+		
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ccc}
+			T\"ubingen, den &......................................... & .........................................\\
+							& Datum / Date & Unterschrift /Signature
+		\end{tabular*}
+		\vspace*{40pt}
+			
+		
+		
+		
+		
 	\end{titlepage}
 	\global\let\maketitle\relax
 }
