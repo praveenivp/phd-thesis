@@ -25,14 +25,28 @@
 % MAINMATTER
 % ===================================================================
 
-\mainmatter% start main document, reset page numbering, use arabic numbers
+\mainmatter % start main document, reset page numbering, use arabic numbers
 
 % ---------------------------------
 % BACKGROUND
 % ---------------------------------
 \pagelayout{wide} % disable margins
-\chapter{synopsis}\label{chap:synopsis}
-\input{synopsis/synopsis}
+\chapter{synopsis}
+\label{chap:synopsis}
+%\section{NMR signal} \label{sec:nmr}
+%\input{synopsis/MRI_acq.tex}
+%\Blindtext
+%\section{Spiral Acquisition}
+%\label{sec:spiralacq}
+%\input{synopsis/Image_Encoding.tex}
+
+%\newpage
+%\input{synopsis/bSSFP.tex}
+\input{synopsis/fMRI.tex}
+\input{synopsis/DMI.tex}
+
+
+
 
 \chapter{Conclusion \& Future Directions}\label{chap:conclusion}
 \input{chapters/conclusion}
@@ -84,7 +98,7 @@
 
 %\input{frontmatter/acknowledgments}
 \end{document}
-
+synopsis/synopsis.tex
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
