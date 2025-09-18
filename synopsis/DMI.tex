@@ -1,16 +1,10 @@
+\newpage
 \section{Deuterium Metabolic Imaging}
-Another high-field methodology which can greatly benefit from the SNR improvements of bSSFP is \gls{DMI}. Being able to detect metabolic changes is a powerful clinical tool, especially in the field of oncology for diagnosis and treatment monitoring.  
+\label{sec:DMI}
+\Gls{DMI} is a MR-based spectroscopic imaging technique mainly used mainly to study metabolism by tracking deuterium ($^2H$), a stable non-radioactive isotope of hydrogen, in the labeled substrates and its transformations though changing chemical shifts. With the low gyromagnetic ratio (6.5-times lower than $^1H$) and low natural abundance (0.0156\%), only the deuterated water which is about 10 mM gives out a detectable signal in the brain. On the bright side, this makes \gls{DMI} with exogenous contrasts specific and robust without any additional confounding signal sources. Furthermore, the efficient quadrapolar relaxation of spin-1 nucleus deuterium reduces the $T_1$ relaxation times  (2s for 1H vs 360 ms for 2H at 9.4 T) and thereby, enabling rapid averaging. \gls{DMI} investigation are performed with $[6,6^2-^2H_2]$-Glucose and a popular spectroscopic techqnique called \gls{CSI} to obtain localized deuterium spectrum. As deuterated glucose is metabolized normally in the cell and produces deuteratium metabolites such as Glutamate/glutamine and lactate glycolytic fluxes to fully characterize the cell metabolism which is helpful especially in the field of oncology for diagnosis and treatment monitoring. Presently, the initial diagnosis of brain tumors are predominately based on contrast \gls{MRI} and \gls{CT} which has the highest sensitivity to detect aggressive tumor which are often associated with \gls{BBB} damage\cite{herholzBrainTumors2012}. The gold-standard [$^{18}$F]flurodeoxyglucose (FDG) \gls{PET} helps mainly with the tumor staging, treatment monitoring and recurrence detection. 
 
-
-
-
-Presently, the clinical diagnosis of brain tumors are predominately based on contrast \gls{MRI} and \gls{CT} which has the highest sensitivity to detect aggressive tumor  \gls{BBB} damage. The molecular imaging like \gls{PET} helps mainly with the tumor staging and treatment monitoring. Especially, \gls{PET} with [$^{18}$F]flurodeoxyglucose (FDG) is most common 
-
-
-
-\subsection{tumor metabolism}
-In order to maintain normal cellular integrity and integrity, all cells require energy in the form of adenosine triphosphate (ATP) which it obtains mainly through glucose metabolism. The glucose metabolism begins with the glucose being transported from the blood into the cell by specialized membrane proteins and undergoes glycolysis in the cytoplasm to produce pyruvate. In the healthy cells, pyruvate enter the tricarboxylic acid (TCA) cycle and oxidative phosphorylation in the mitochondria for the most efficient ATP production as illustrated in \cref{fig:dmi_intro}. In tumor cells, however, the anaerobic fermentation of pyruvate into lactic acid is upregulated. Even though this process is inefficient, it is 10-100 times faster than mitochondrial respiration and provide additional bio-materials for rapid cell division\cite{libertiWarburgEffectHow2016}. This results in increased glucose consumption of the turmor cells known as the Warburg effect\cite{warburgOriginCancerCells1956}. The Warburg effect is an important cancer biomarker used  in all modern molecular imaging modality such as \gls{PET}~\cite{reivich18FfluorodeoxyglucoseMethodMeasurement1979, \gls{DMI}~\cite{defeyterDeuteriumMetabolicImaging2021}, hyper-polarized $^{13}C$- \gls{MRI}~\cite{gordonTranslationCarbon13EPI2019} and Gluco\gls{CEST}~\cite{capozzaGlucoCESTMRIEvaluation2022}
-
+\subsection{Tumor metabolism}
+In order to maintain cellular fucnction and integrity, all cells require energy in the form of adenosine triphosphate (ATP), which they obtain primarily through glucose metabolism. Glucose metabolism begins with the transport of glucose from the blood into the cell via specialized membrane proteins, followed by glycolysis in the cytoplasm to produce pyruvate. In healthy cells, pyruvate enters the tricarboxylic acid (TCA) cycle and undergoes oxidative phosphorylation in the mitochondria for efficient ATP production, as illustrated in \cref{fig:dmi_intro}. However, in tumor cells, the anaerobic fermentation of pyruvate into lactic acid is upregulated. Although this process is inefficient, it is 10–100 times faster than mitochondrial respiration and provides additional biomaterials for rapid cell division\cite{libertiWarburgEffectHow2016}. This results in increased glucose consumption by tumor cells, a phenomenon known as the Warburg effect\cite{warburgOriginCancerCells1956}. The Warburg effect is an important cancer biomarker utilized in various molecular imaging modalities, including \gls{PET}~\cite{reivich18FfluorodeoxyglucoseMethodMeasurement1979}, \gls{DMI}~\cite{defeyterDeuteriumMetabolicImaging2021}, hyper-polarized $^{13}C$- \gls{MRI}~\cite{gordonTranslationCarbon13EPI2019}, and Gluco\gls{CEST}~\cite{capozzaGlucoCESTMRIEvaluation2022}.
 
 \begin{figure}[H]
 	\centering
@@ -21,14 +15,10 @@ In order to maintain normal cellular integrity and integrity, all cells require 
 
 
 
-\subsection{sensitivity of DMI}
-
-
+\subsection{Sensitivity of DMI}
 - why pyruvate is and other intermediates are not visible
-
-
-
-
+metbolites visible in DMI. 
+invivo concentrations.
 
 
 \begin{table}[ht]
@@ -50,7 +40,7 @@ In order to maintain normal cellular integrity and integrity, all cells require 
 			\textbf{Total} & $\approx 440{,}000$ & $1$ \\
 			\bottomrule
 		\end{tabular}
-		\caption{Comparison of ${}^{1}$H and ${}^{2}$H properties.}
+	%	\caption{Comparison of ${}^{1}$H and ${}^{2}$H properties.}
 	\end{minipage}
 	\hfill
 	% ---------------- RIGHT TABLE ----------------
@@ -69,7 +59,7 @@ In order to maintain normal cellular integrity and integrity, all cells require 
 			\midrule
 			\textbf{Total} & $380{,}000$ \\
 			\bottomrule
-				\caption{SNR gain contributions.}
+%				\caption{SNR gain contributions.}
 		\end{tabular}
 	
 	\end{minipage}
