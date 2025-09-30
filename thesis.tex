@@ -7,15 +7,18 @@
 % ===================================================================
 
 \frontmatter % start pre-document content, use roman numerals
-%\input{frontmatter/coverpage}
+\input{frontmatter/coverpage}
 % Show page number in footer aligned to the outside of the page (excluding chapter pages)
-%\pagestyle{pagenum.scrheadings}
+\pagestyle{pagenum.scrheadings}
+
+
+\input{frontmatter/notation}
 
 \input{frontmatter/abstract}
 %
 \input{frontmatter/zusammenfassung}
 
-\input{frontmatter/notation}
+
 
 \input{frontmatter/toc_lof_lot}
 
@@ -31,12 +34,11 @@
 % BACKGROUND
 % ---------------------------------
 \pagelayout{wide} % disable margins
-\chapter{synopsis}
+\chapter{Synopsis}
 \label{chap:synopsis}
-\section{NMR signal} \label{sec:nmr}
+
 \input{synopsis/MRI_acq.tex}
-\section{Spiral Acquisition}
-\label{sec:spiralacq}
+
 \input{synopsis/Image_Encoding.tex}
 
 \newpage
@@ -51,6 +53,11 @@
 
 \chapter{List of Publications}\label{chap:LOP}
 \input{chapters/list_publications.tex}
+
+
+\input{backmatter/bibliography}
+
+\input{frontmatter/acknowledgments}
 
 %\chapter{Appended manuscripts}
 %\input{chapters/paper1}
@@ -83,9 +90,7 @@
 \backmatter% end of the main document content
 
 
-\input{backmatter/bibliography}
 
-\input{frontmatter/acknowledgments}
 \end{document}
 %%% Local Variables:
 %%% mode: latex

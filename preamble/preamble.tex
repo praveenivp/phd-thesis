@@ -82,11 +82,11 @@
 %\usepackage{parskip}
 %\usepackage[nolist,nohyperlinks]{acronym}
 \usepackage{glossaries}
- \usepackage{glossary-mcols}
+\usepackage{glossary-mcols}
 \makeglossaries
 \renewcommand*{\glstextformat}[1]{\textcolor{Black}{#1}}
-\AtBeginDocument{\renewcommand{\vec}[1]{\overrightarrow{\textbf{#1}}}} 
-
+%\AtBeginDocument{\renewcommand{\vec}[1]{\overrightarrow{\textbf{#1}}}} 
+\setacronymstyle{long-short}
 
 
 % width in figure* environments
@@ -160,11 +160,11 @@
 	bookmarksopen=true, % Expand the bookmarks as soon as the pdf file is opened
 	%bookmarksopenlevel=4,
 	%	linktoc=all, % Toc entries and numbers links to pages
-	linktocpage=true,  % Only the page number links to pages
+%	linktocpage=true,  % Only the page number links to pages
 	breaklinks=true,
 	colorlinks=true,
 	citecolor = thirdcolor,
-	linkcolor = secondcolor,
+	linkcolor = black,
 	urlcolor = fourthcolor,
 }
 
@@ -515,6 +515,11 @@ examplebackground=lightgraycolor!25]{preamble/kaotheorems}
 	\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}% Add section to ToC
 	% Add more content here, if needed.
 }
+%\usepackage{sectsty}
+%\usepackage{titlecaps}
+%\allsectionsfont{\titlecap}
+%\all{\titlecap}
+
 
 %%% Local Variables:
 %%% mode: latex

@@ -1,61 +1,74 @@
 \section{Outlook}
 \label{sec:outlook}
+Passband-\gls{bSSFP} offers a promising alternative to traditional \gls{GE}-\gls{BOLD} \gls{fMRI} at \gls{UHF}, leveraging vessel size specificity to isolate \gls{BOLD} signals originating near small vessels such as capillaries to be closer to neuronal activity and to minimize contributions from larger vessels.  In publication 1, we have addressed a key practical limitation, the slow acquisition speed, with efficient spiral acquisition. However, \textit{in vivo} validation of the vessel size specificity is crucial for its broader acceptance. While demonstrated in simulations~\cite{baez-yanezImpactVesselSize2017} and phantom experiments with micro-spheres ~\cite{schefflerBOLDSensitivityRapid2019}, replicating these findings *in vivo* remains challenging. In a recent study, the superior signal stability of \gls{bSSFP} across cortical layer compared with GE-\gls{BOLD} was demonstrated with resting-state data~\cite{ramadanMacrovascularContributionsRestingstate2025}. Building on this, we conducted two preliminary investigations to characterize the vessel-size specificity of bSSFP-BOLD contrast, briefly presented in the following section. We also explored the peculiar BOLD contrast inversion during the transient phase of bSSFP and evaluated the benefits of using concurrently measured spatio-temporal field information from a newly built integrated field-probe RF array to enhance the image quality. Looking forward, further improvements could be achieved by accelerating reconstruction with modern heterogeneous computing architectures and integrating them into the online reconstruction pipelines for a workflow comparable to conventional \gls{GE}-\gls{EPI}. These directions could potentially advance the understanding and the utility of non-Cartesian \gls{bSSFP} for functional investigations.
 
-Passband-\gls{bSSFP} offers a promising alternative to traditional \gls{GE}-\gls{BOLD} \gls{fMRI} at \gls{UHF}, leveraging vessel size specificity to isolate \gls{BOLD} signals originating near small vessels such as capillaries to be closer to neuronal activity and to minimize contributions from larger vessels.  In publication 1, we have addressed a key practical limitation, the slow acquisition speed, with efficient spiral acquisition. However, \textit{in vivo} validation of the vessel size specificity is crucial for its broader acceptance. While demonstrated in simulations\cite{baez-yanezImpactVesselSize2017} and phantom experiments with micro-spheres \cite{schefflerBOLDSensitivityRapid2019}, replicating these findings in vivo remains challenging. In a recent study, the superior signal stability of \gls{bSSFP} across cortical layer compared with GRE-BOLD was demonstrated with resting-state data\cite{ramadanMacrovascularContributionsRestingstate2025}. To explore along these lines, we conducted some experiments to investigate the evidence of vessel specificity of bSSFP-BOLD contrast.
+The improved sensitivity of the \gls{DMI} methods developed in this work holds promise for advancing cancer diagnosis and treatment monitoring. While the current study focused on healthy subjects, future investigations should explore the application of these techniques to characterize tumor metabolism. Specifically, imaging smaller tumors, such as melanoma metastases or low-grade gliomas, would demonstrate the clinical potential of high-resolution \gls{DMI}. However, a resolution of approximately 12.6 mm³ may be insufficient for reliable diagnosis in real-world scenarios. This is particularly challenging with low-grade tumors, which retain normal brain function (i.e., Glx synthesis) and exhibit reduced lactate production compared to large, aggressive gliomas exceeding 50 mm in size with significant lactate accumulation. Additionally, the dynamic imaging employed in this study could be used to estimate glycolytic fluxes and derive quantitative metabolic parameters, including cerebral metabolic rates of oxygen (CMR$_{O_2}$) and glucose (CMR$_{\text{Glx}}$), providing a comprehensive assessment of both oxidative and non-oxidative metabolism. These metabolic biomarkers may ultimately offer greater diagnostic value than the static metabolite maps currently obtainable with \gls{DMI}. Finally, advanced denoising techniques exploiting known priors—such as spatial smoothness, temporal regularization with kinetic models, or learning more general spatio-temporal priors with machine learning algorithms—could further enhance image quality and diagnostic accuracy.
 
-\subsection{Investigating large vessels bias}
-In this preliminary study, the BOLD signal changes were investigated near large vessels segmented from a co-registered high-resolution Cartesian \gls{GRE} scan. The underlying hypothesis is that bSSFP-BOLD should exhibit lower signal changes near large veins compared to GE-BOLD, reflecting improved spatial specificity. As shown in \cref{fig:vesselDistance}, the bSSFP BOLD signal changes near large vessels demonstrates marginally reduced signal changes, suggesting a degree of vessel specificity. This effect becomes more pronounced in the bSSFP functional experiment conducted with a shorter TR and higher spatial resolution, where the suppression of large-vessel contributions is more clearly visible.
+\subsection{Investigating large-vessel bias}
+
+In this preliminary study, BOLD signal changes were analyzed near large vessels segmented from a co-registered high-resolution Cartesian \gls{GRE} scan. The underlying hypothesis is that bSSFP-BOLD should exhibit reduced signal changes near large veins compared to GE-BOLD, reflecting improved spatial specificity. As shown in \cref{fig:vesselDistance}, bSSFP-BOLD signal changes near large vessels are marginally lower, suggesting a degree of vessel-specific sensitivity. This effect becomes more pronounced in functional bSSFP experiments conducted with shorter TR, where suppression of large-vessel contributions is more clearly visible.  Although these findings are encouraging, the overall reduced \gls{BOLD}-related signal change makes it difficult to fully assess the vessel-size sensitivity. 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{graphics/vesselDist.png}
-	\caption{Vessel distance versus signal change for GE-EPI and bSSFP acquisition. (A) Vessel distance (in mm) from large veins (segmented using a Frangi filter on a high-resolution Cartesian GE-scan; TE=16 ms, 0.4 mm isotropic resolution) is shown alongside exemplary anatomical axial images acquired with GE-EPI (0.8 mm isotropic resolution) and spiral-bSSFP (0.8 mm isotropic resolution). Corresponding signal change in significantly activated voxels from the activation maps (B and C) is plotted against vessel distance in (D) and (E), respectively. (F) A similar plot is shown for a bSSFP functional experiment with TR=6 ms and 1 mm isotropic voxels.}
+	\caption{Vessel distance versus \gls{BOLD} signal change for GE-EPI and bSSFP functional experiments. 
+		\textbf{(A)} Vessel distance (in mm) from large veins, segmented using a Frangi filter on a high-resolution Cartesian GE scan (TE = 16~ms, 0.4~mm isotropic resolution), shown alongside exemplary anatomical axial images acquired with GE-EPI (0.8~mm isotropic resolution) and spiral-bSSFP (0.8~mm isotropic resolution). 
+		\textbf{(B, C)} Activation maps used to select significantly activated voxels. 
+		\textbf{(D, E)} Signal change plotted against vessel distance for GE-EPI and spiral-bSSFP, respectively. 
+		\textbf{(F)} Similar analysis for a bSSFP functional experiment with TR = 6~ms and 1~mm isotropic voxels.}
 	\label{fig:vesselDistance}
 \end{figure}
 
 
 \subsection{BOLD signal change in refocusing modes}
-With the complicated vasculature in the human brain, demonstrating small vessel specificity of the bSSFP-BOLD is challenging. An alternative approach would be to show the BOLD signal change in the refocusing echo pathways in bSSFP-BOLD to show its spin-echo behavior. In the preliminary investigation\cite{iyyappanvalsalaInvestigationBSSFPFrequency2024},
-
+Demonstrating small-vessel specificity of bSSFP-BOLD in the human brain is challenging due to the difficulty of vascular measurement and segmentation. An alternative approach is to examine BOLD signal changes in the refocusing echo pathways of bSSFP, as described in \cref{sec:bssfp_conf_modes}. In our preliminary investigation ~\cite{iyyappanvalsalaInvestigationBSSFPFrequency2024}, high-resolution bSSFP frequency responses were acquired with an RF phase increment resolution of 1.8°, and the corresponding \gls{BOLD}-related signal changes were analyzed in the \gls{SSFP} configuration modes. Experimental limitations prevented fully sampled bSSFP profiles under both active and resting conditions within two functional runs, due to scanner drifts and the slow hemodynamic response. Nonetheless, a consistent difference (stopband width) between resting and active profiles was observed for highly significant activated voxels (z-score > 15) during the passband experiment, as illustrated in \cref{fig:bssfpBOLDmodes}. Refocusing SSFP modes amplitudes exhibited larger signal differences, suggesting that bSSFP-BOLD signal changes arise predominantly from refocusing pathways rather than dephasing modes for short TR/TE (5/1.6~ms).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.05\textwidth]{graphics/bSSFPBOLD_modes.png}
-	\caption{bSSFP frequency response during a functional experiment. A) The activation maps from a passband experiment (TR= 10 ms) used for selecting the activated voxels. The average time courses from the functional experiments with phase cycling [B], the extracted  average bSSFP profiles during resting and active conditions [C] and the SSFP mode amplitude distribution during resting and active conditions D of all voxels with z-scores>21. Similarly, the activated voxels with lower z-scores are shown below.}
+	\caption{bSSFP frequency response during a functional experiment, highlighting potential spin-echo contributions to BOLD contrast. 
+		\textbf{(A)} Activation maps from the passband experiment (TR = 10~ms) used to select activated voxels. 
+		\textbf{(B)} Average time courses from functional experiments with phase cycling and alternating resting and active stimulus conditions. 
+		\textbf{(C)} Extracted average bSSFP profiles during resting and active conditions. 
+		\textbf{(D)} SSFP mode amplitude distributions for resting (green violin) and active (red violin) conditions, with the mean difference indicated by the blue bar underlay, shown for highly significant activated voxels (z-score > 21). 
+		Voxels with lower z-scores are shown below for comparison.}
 	\label{fig:bssfpBOLDmodes}
 \end{figure}
 
 
 \subsection{Transient bSSFP-BOLD}
 
-Another interesting observation made possible because of the acquisition speed of 3D spiral-bSSFP sequence is the the bSSFP-BOLD contrast inversion during the transient phase. The use of 2D multi-slice \gls{bSSFP} sequence to improve coverage in passband \gls{fMRI} studies\cite{reynaudMultislicePassbandBSSFP2019b,blazquezfrechesBOLDfMRIMouseAuditory2018} could result in measuring bSSFP-BOLD contrast in the transient state. Rahel et al.\cite{heuleInvertedBOLDSignal2024} show that the bSSFP-BOLD contrast evolve along the pulse train. Particularly, the contrast is inverted for large vessels during the early transient phase as shown in \ref{fig:negBOLD}. However, the effect could not be observed \textit{in vivo} with conventional Cartesian encoding even with a segmented approach\cite{heuleInvertedBOLDSignal2024}. With the acceleration of spiral encoding and parallel imaging, it is possible to acquire whole brain volume within 50 excitations. Thereby enabling the sampling of early transient phase of bSSFP-BOLD contrast. For the checkerboard stimulus, most of the activated voxels with positive correlation during the passband experiment show negative correlation to the stimulus paradigm in the transient bSSFP-BOLD. Although the reason for this contrast inversion is not clear, the higher contribution from other signal pathways as show in \cref{fig:bSSFP_modes} could be a starting point of the investigation.
+The high acquisition speed of the 3D spiral-bSSFP sequence enabled the observation of bSSFP-BOLD contrast inversion during the transient phase. In passband \gls{fMRI} studies, 2D multi-slice \gls{bSSFP} has been proposed to improve coverage ~\cite{reynaudMultislicePassbandBSSFP2019b,blazquezfrechesBOLDfMRIMouseAuditory2018}, which may result in sampling the transient rather than the steady-state signal. Recent work by Rahel et al.~\cite{heuleInvertedBOLDSignal2024} demonstrated that bSSFP-BOLD contrast evolves along the pulse train, with large vessels showing an inverted contrast during the early transient phase (\cref{fig:negBOLD}). However, this effect could not be observed \textit{in vivo} using conventional Cartesian encoding, even with segmented acquisitions ~\cite{heuleInvertedBOLDSignal2024}.  
+
+With spiral encoding and parallel imaging acceleration, whole-brain volumes can be acquired within 50 excitations ($\approx 300$~ms), thereby enabling sampling of the early transient phase of bSSFP-BOLD contrast. Preliminary observations suggest that voxels positively correlated in the passband steady-state experiment showing inverted responses during the transient phase(\cref{fig:negBOLD}). Although the underlying mechanism of this contrast inversion remains unclear, increased contributions from several signal pathways during the transient phase, as illustrated in \cref{fig:bSSFP_modes}, may provide a starting point for further investigation.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{graphics/negBOLD.png}
-	\caption{Inverted BOLD signal changes in the transient phase of passband balanced SSFP. A) BOLD-related signal changes simulated by a Monte Carlo approach in units of the equilibrium magnetization $M_0$\cite{heuleInvertedBOLDSignal2024}. The Activation maps reference from passband-bSSFP and transition-band functional experiment are overlaid on anatomical reference in panels B and C, respectively. In both cases, whole brain functional volume was acquired in ~300 ms with 2.5 mm isotropic nominal resolution. During transition-band experiment, the recovery time between volumes was 4 s, increasing the volume TR to 4.3 s. Other imaging parameters: TR=6.1 ms,TE=0.69 ms,FA= $15^\circ$ and parallel imaging factor= 4x2.}
+	\includegraphics[width=0.75\textwidth]{graphics/negBOLD.png}
+	\caption{Inverted BOLD signal changes during the transient phase of passband-bSSFP. 
+		\textbf{(A)} BOLD-related signal changes simulated using a Monte Carlo approach in units of the equilibrium magnetization $M_0$ ~\cite{heuleInvertedBOLDSignal2024}. 
+		\textbf{(B)} Activation map from a passband-bSSFP experiment overlaid on the anatomical reference. 
+		\textbf{(C)} Activation map from a transition-band experiment, with identical coverage. 
+		In both cases, whole-brain volumes were acquired in $\approx 300$~ms with 2.5~mm isotropic nominal resolution. 
+		For the transition-band experiment, a recovery time of 4~s was inserted between volumes, resulting in a volume TR of 4.3~s. 
+		Other imaging parameters were kept constant: TR = 6.1~ms, TE = 0.69~ms, FA = $15^\circ$, parallel imaging factor = 4$\times$2.}
 	\label{fig:negBOLD}
 \end{figure}
 
-
-- discuss about un-balanced fmri papers
-- simulations
-- SE - occular dominence column
-- paradigm design
-
-\subsection{concurrent monitoring}
-
+\subsection{Concurrent monitoring}
+Gradient imperfections can be measured using $^{19}$F field probes ~\cite{barmetSpatiotemporalMagneticField2008} and modeled as a \gls{LTI} system in the reconstruction ~\cite{vannesjoCharacterizingCorrectingImperfect2013}, as detailed in \cref{sec:GIRF}. However, concurrent monitoring provides higher precision through real-time tracking of spatiotemporal field distortions and additionally enables the detection of physiological field fluctuations caused by motion, respiration, and cardiac cycle ~\cite{grossPhysiologyRecordingMagnetic2017}. To this end, a dedicated RF array with 16 integrated field probes was developed for our 9.4~T scanner ~\cite{bauseDesignApplication16channel2024a}. The probes were positioned to maximize sensitivity to fields up to 3\textsuperscript{rd}-order spherical harmonics, while preserving the transmit–receive performance of the RF array. A proof-of-concept *in vivo* experiment demonstrated concurrent monitoring of a spiral trajectory, as illustrated in \cref{fig:concurrentmonitoring}. Although the improvements compared to \gls{GIRF}-based correction were minimal, the sufficiently long probe lifetimes and demonstrated physiological monitoring highlight the potential of this approach to reduce temporal fluctuations in functional time series.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.0\textwidth]{graphics/concurrentmonitoring.png}
-	\caption{Concurrent trajectory monitoring with the field-probe insert for a 16Tx/32Rx coil. (A)shows the individual layers of the coil assembly from the inside to the outside. A 2D 0.75 mm multi-shot spiral (7 ms readout) acquisition is reconstructed with nominal trajectory (B),  trajectory from gradient impulse response function (GIRF) predictions (C) , measured trajectory (D), measured trajectory with B0 correction (E) and parallel imaging (F). The second row shows the image differences to highlight the improvements (G-I,K) and field map (J) used for B0 correction. }
+	\includegraphics[width=\textwidth]{graphics/concurrentmonitoring.png}
+	\caption{Concurrent trajectory monitoring with the 16Tx/32Rx coil incorporating a field-probe insert. 
+		(A) Coil assembly layers from inside to outside. 
+		(B) Nominal trajectory reconstruction of a 2D 0.75~mm multi-shot spiral (7~ms readout). 
+		(C) Trajectory from \gls{GIRF} prediction. 
+		(D) Measured trajectory. 
+		(E) Measured trajectory with $B_0$ correction. 
+		(F) Parallel imaging reconstruction. 
+		The second row shows corresponding image differences (G–I, K) and the field map (J) used for $B_0$ correction.}
 	\label{fig:concurrentmonitoring}
 \end{figure}
 
-
-Other still open problem.
-- real time spiral reconstruction
-- motion
-- intershot phase correction
-- flow effects: Significant signal changes in BOLD-fMRI arise due to the inflow of the fresh spins flowing into the imaging volume. Eventhough inflow effects is minimized with 3D imaging with thick slabs and low flip angle, inflow effects must be investigated further.
 
