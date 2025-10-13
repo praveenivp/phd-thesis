@@ -195,6 +195,23 @@
   file = {C:\Users\pvalsala\Zotero\storage\UL5TQFIP\Alsop et al._2015_Recommended implementation of arterial spin-labeled Perfusion mri for clinical applications A consensus of the ISMRM P.pdf}
 }
 
+@inproceedings{andersonCommunicationAvoidingQRDecomposition2011,
+  title = {Communication-{{Avoiding QR Decomposition}} for {{GPUs}}},
+  booktitle = {2011 {{IEEE International Parallel}} \& {{Distributed Processing Symposium}}},
+  author = {Anderson, Michael and Ballard, Grey and Demmel, James and Keutzer, Kurt},
+  year = {2011},
+  month = may,
+  pages = {48--58},
+  publisher = {IEEE},
+  address = {Anchorage, AK, USA},
+  doi = {10.1109/IPDPS.2011.15},
+  urldate = {2025-10-07},
+  abstract = {We describe an implementation of the Communication-Avoiding QR (CAQR) factorization that runs entirely on a single graphics processor (GPU). We show that the reduction in memory traffic provided by CAQR allows us to outperform existing parallel GPU implementations of QR for a large class of tall-skinny matrices. Other GPU implementations of QR handle panel factorizations by either sending the work to a general-purpose processor or using entirely bandwidth-bound operations, incurring data transfer overheads. In contrast, our QR is done entirely on the GPU using compute-bound kernels, meaning performance is good regardless of the width of the matrix. As a result, we outperform CULA, a parallel linear algebra library for GPUs by up to 17x for tall-skinny matrices and Intel's Math Kernel Library (MKL) by up to 12x.},
+  isbn = {978-1-61284-372-8},
+  langid = {english},
+  file = {C:\Users\pvalsala\Zotero\storage\CSYK8YU4\Anderson et al. - 2011 - Communication-Avoiding QR Decomposition for GPUs.pdf}
+}
+
 @article{andersoniiiControlledAliasingImproved2020,
   title = {Controlled Aliasing for Improved Parallel Imaging with a {{3D}} Spiral Staircase Trajectory},
   author = {Anderson III, Ashley G. and Wang, Dinghui and Pipe, James G.},
@@ -1469,6 +1486,35 @@
   urldate = {2025-06-23},
   keywords = {fft},
   file = {C:\Users\pvalsala\Zotero\storage\MK8BPNWL\Cooley and Tukey - 1965 - An Algorithm for the Machine Calculation of Complex Fourier Series.pdf}
+}
+
+@article{cosnuauComputationGPUEigenvalues2014,
+  title = {Computation on {{GPU}} of {{Eigenvalues}} and {{Eigenvectors}} of a {{Large Number}} of {{Small Hermitian Matrices}}},
+  author = {Cosnuau, Alain},
+  year = {2014},
+  month = jan,
+  journal = {Procedia Computer Science},
+  doi = {10.1016/J.PROCS.2014.05.072},
+  urldate = {2025-10-07},
+  abstract = {This paper presents an implementation on Graphics Processing Units of QR-Householder algorithm used to find all the eigenvalues and eigenvectors of many small hermitian matrices (double precision) in a very short time to address time constraints for},
+  file = {C:\Users\pvalsala\Zotero\storage\RY4XDIZ6\Computation_on_GPU_of_Eigenvalues_and_Eigenvectors_of_a_Large_Number_of_Small_Hermitian_Matrice.html}
+}
+
+@article{cosnuauComputationGPUEigenvalues2014a,
+  title = {Computation on {{GPU}} of {{Eigenvalues}} and {{Eigenvectors}} of a {{Large Number}} of {{Small Hermitian Matrices}}},
+  author = {Cosnuau, Alain},
+  year = {2014},
+  month = jan,
+  journal = {Procedia Computer Science},
+  series = {2014 {{International Conference}} on {{Computational Science}}},
+  volume = {29},
+  pages = {800--810},
+  issn = {1877-0509},
+  doi = {10.1016/j.procs.2014.05.072},
+  urldate = {2025-10-07},
+  abstract = {This paper presents an implementation on Graphics Processing Units of QR-Householder algorithm used to find all the eigenvalues and eigenvectors of many small hermitian matrices (double precision) in a very short time to address time constraints for Radar issues.},
+  keywords = {Eigenvalues,Eigenvectors,GPU,Householder,Many Small Hermitian Matrices,Parallel,QR},
+  file = {C\:\\Users\\pvalsala\\Zotero\\storage\\3FL7CFQ5\\Cosnuau - 2014 - Computation on GPU of Eigenvalues and Eigenvectors of a Large Number of Small Hermitian Matrices.pdf;C\:\\Users\\pvalsala\\Zotero\\storage\\YJ3PD9FY\\S187705091400249X.html}
 }
 
 @article{costelloWhyTumourCells2005,
@@ -3468,6 +3514,25 @@
   file = {C:\Users\pvalsala\Zotero\storage\IFVHQXRE\Hahn - 1950 - Spin Echoes.pdf}
 }
 
+@misc{halkoFindingStructureRandomness2010,
+  title = {Finding Structure with Randomness: {{Probabilistic}} Algorithms for Constructing Approximate Matrix Decompositions},
+  shorttitle = {Finding Structure with Randomness},
+  author = {Halko, Nathan and Martinsson, Per-Gunnar and Tropp, Joel A.},
+  year = {2010},
+  month = dec,
+  number = {arXiv:0909.4061},
+  eprint = {0909.4061},
+  primaryclass = {math},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.0909.4061},
+  urldate = {2025-10-07},
+  abstract = {Low-rank matrix approximations, such as the truncated singular value decomposition and the rank-revealing QR decomposition, play a central role in data analysis and scientific computing. This work surveys and extends recent research which demonstrates that randomization offers a powerful tool for performing low-rank matrix approximation. These techniques exploit modern computational architectures more fully than classical methods and open the possibility of dealing with truly massive data sets.},
+  archiveprefix = {arXiv},
+  langid = {english},
+  keywords = {Mathematics - Numerical Analysis,Mathematics - Probability},
+  file = {C:\Users\pvalsala\Zotero\storage\3ZQI48UY\Halko et al. - 2010 - Finding structure with randomness Probabilistic algorithms for constructing approximate matrix deco.pdf}
+}
+
 @article{hallerArterialSpinLabeling2016,
   title = {Arterial {{Spin Labeling Perfusion}} of the {{Brain}}: {{Emerging Clinical Applications}}},
   author = {Haller, Sven and Zaharchuk, Greg and Thomas, David L. and Lovblad, Karl-Olof and Barkhof, Frederik and Golay, Xavier},
@@ -4285,6 +4350,22 @@
   title = {Accelerated {{3D}} Stack-of-Spiral {{bSSFP}} for Functional Imaging at 9.{{4T}}: {{Pilot}} Study},
   booktitle = {\#1102, {{Proc}}. {{ISMRM}} 2022},
   author = {Iyyappan Valsala, Praveen and Ehses, Philipp and Veldmann, Marten and Scheffler, Klaus}
+}
+
+@article{iyyappanvalsalaHighresolutionDeuteriumMetabolic,
+  title = {High-Resolution Deuterium Metabolic Imaging of the Human Brain at 9.4 {{T}} Using Phase-Cycled Balanced {{SSFP}} Spectral--Spatial Acquisitions},
+  author = {Iyyappan Valsala, Praveen and Pohmann, Rolf and Heule, Rahel and Solomakha, Georgiy A. and Avdievich, Nikolai I. and Engelmann, J{\"o}rn and Kuebler, Laura and Martins, Andr{\'e} F. and Scheffler, Klaus},
+  journal = {Magnetic Resonance in Medicine},
+  volume = {n/a},
+  number = {n/a},
+  issn = {1522-2594},
+  doi = {10.1002/mrm.70114},
+  urldate = {2025-10-13},
+  abstract = {Purpose The aim was to improve the sensitivity and robustness against B0 inhomogeneities of deuterium metabolic imaging (DMI) using phase-cycled balanced SSFP (bSSFP) methods at 9.4 T. Methods We investigated two variants of phase-cycled bSSFP acquisitions, namely uniformly weighted multi-echo and acquisition-weighted chemical shift imaging (CSI) to improve the SNR of DMI in the brain after oral [6,6{$\prime$}-2H2]-glucose intake. Phase-cycling was introduced to reduce the off-resonance sensitivity of bSSFP, incurring a moderate SNR loss. Two SNR optimal methods for obtaining metabolite amplitudes from the phase-cycled bSSFP data were proposed. The SNR performance of the two bSSFP variants was compared with the SNR-optimized vendor's standard CSI. Additionally, in vivo T1 and T2 of deuterium metabolites were estimated. Results High-resolution whole-brain dynamic DMI maps were obtained for all acquisitions. The CSI variant of phase-cycled bSSFP achieved an average SNR increase of 16\% and 25\% for glucose and glutamate + glutamine (Glx), respectively, compared to the SNR-optimized vendor's standard CSI. Phase-cycling improved the bSSFP metabolite estimation and provided additional spectral encoding at the cost of a 10\% to 20\% SNR loss. Compared to the CSI variant of bSSFP acquisition, the multi-echo variant exhibited up to 35\% lower SNR performance because of uniform k-space weighting and less efficient readout. However, it achieved higher resolutions than acquisition-weighted CSI protocols and showed several qualitative improvements. Conclusion We demonstrated the feasibility of using two phase-cycled bSSFP acquisitions for off-resonance insensitive high-resolution [6,6{$\prime$}-2H2]-glucose DMI studies in the human brain. bSSFP acquisitions have potential to improve the sensitivity of DMI despite the SNR loss of phase-cycling and other human scanner constraints.},
+  copyright = {{\copyright} 2025 The Author(s). Magnetic Resonance in Medicine published by Wiley Periodicals LLC on behalf of International Society for Magnetic Resonance in Medicine.},
+  langid = {english},
+  keywords = {bSSFP,deuterium metabolic imaging,IDEAL,SNR,ultra-high-field},
+  file = {C\:\\Users\\pvalsala\\Zotero\\storage\\7TY7KQKW\\Iyyappan Valsala et al. - High-resolution deuterium metabolic imaging of the human brain at 9.4 T using phase-cycled balanced.pdf;C\:\\Users\\pvalsala\\Zotero\\storage\\M3CK4WXL\\mrm.html}
 }
 
 @article{iyyappanvalsalaInvestigationBSSFPFrequency2024,

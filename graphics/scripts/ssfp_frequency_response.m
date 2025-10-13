@@ -58,7 +58,38 @@ fontsize(gcf,"scale",1.15)
 plotMinMaxgradients(1:2000, min(abs(bSSFP),[],1), max(abs(bSSFP),[],1));
 
 
+%% only T2 
 
+
+T1=[2000e-3,2500e-3];
+T2=[20e-3];
+TR=10e-3;
+TE=5e-3;
+
+dfreq=linspace(-1/TR,1/TR,2000);
+get_opt=@(t1,t2,tr) acos((exp(-tr./t1)-exp(-tr./t2))./(1- exp(-tr./t1).*exp(-tr./t2)));
+FA=get_opt(T1,T2,TR);
+phi=0;
+bSSFP=bSSFP_profile_Ganter2(FA(:),T1(:),T2(:),TE, TR,phi,dfreq*TR*2*pi);
+
+figure(25),clf
+l_h1=plot(dfreq*TR,abs(squeeze(bSSFP.')),'LineWidth',1.5);
+% ylim([0 0.52]),ylabel('M_{xy} magnitude [n.u]')
+yyaxis('right'),
+ax=gca;ax.YAxis(2).Color=[0 0 0];
+% l_h2=plot(dfreq*TR,angle(squeeze(bSSFP(1,:).')),'LineWidth',1.5,'LineStyle','--','Color','black'); hold on,
+% plot(dfreq*TR,angle(squeeze(bSSFP(:,:).')),'LineWidth',1.5,'LineStyle','--');
+title('T2/T1 dependence')
+% set(gca,'ColorOrder',lines(3),'LineStyleOrder','--')
+xlabel('off-resonance [Hz]'),ylabel('M_{xy} phase [rad]'),axis square,grid minor
+ xticklabels({'-1/TR','-0.5/TR','0','0.5/TR','1/TR'})
+% yticks([-1 -0.5 0 0.5 1]*pi),yticklabels({'-\pi','-\pi/2','0','\pi/2','\pi'})
+% legh=legend([l_h1;l_h2],'T2/T1=0.1','T2/T1=0.5','T2/T1=1','phase',...
+%     'Position',[0.782995255016859 0.132936513991583 0.105108053370403 0.165476185934884]);
+fontsize(gcf,"scale",1.15)
+
+
+%%
 
 function bSSFP=bSSFP_profile_Ganter2(flip,T1,T2,TE, TR,phi,off_resonance)
 %function bSSFP=bSSFP_profile_Ganter(TR,TE,flip,phi,T1,T2)
